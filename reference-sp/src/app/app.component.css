@@ -1,0 +1,18 @@
+.reference {
+  overflow: hidden;
+  background-color: var(--refs-main-blue);
+}
+.board, .board-big, .board-small {
+  height: 100%;
+  background-color: var(--refs-hf-color);
+  position: absolute;
+  z-index: 100;
+  overflow-y: auto;
+}
+.board-big {
+  min-width: 500px !important;
+  max-width: 30% !important;
+}
+.board-small {
+  width: 100%;
+}

@@ -1,0 +1,14 @@
+.footer {
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 10px;
+}
+.footer-text {
+  font-size: 25px;
+  font-family: Reference;
+  font-weight: 900;
+  margin: 15px 0px 0px 15px;
+}
