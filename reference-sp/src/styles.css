@@ -25,9 +25,18 @@ body {
   left: 0px;
   right: 0px;
 }
+.refs-w100 {
+  width: 100% !important;
+}
+.refs-h100 {
+  height: 100% !important;
+}
 
 .refs-m10 {
   margin: 10px;
+}
+.refs-m20 {
+  margin: 20px;
 }
 .refs-p10 {
   padding: 10px;
@@ -58,6 +67,10 @@ body {
 }
 .refs-flex-right {
   justify-content: flex-end;
+}
+
+.refs-spacer {
+  flex: 1 1 auto;
 }
 
 /* OVERRIDE ANGULAR */

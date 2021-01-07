@@ -1,3 +1,4 @@
+import { CustomCard } from './../refs-object/CustomCard';
   // tslint:disable: max-line-length
 import { CustomButton } from './../refs-object/CustomButton';
 import { CustomInfo } from '../refs-object/CustomInfo';
@@ -27,8 +28,41 @@ export class StaticInfo {
     ]},
   ];
 
-  public static MAIN_BUTTON: CustomButton[] = [
-    { title: 'Facebook', type: 'LINK', action: 'facebook.com/m4rco.ambrosi'},
-    { title: 'Instagram', type: 'LINK', action: 'instagram.com/4mbromark'}
+  public static MAIN_USER_BUTTON: CustomButton[] = [
+    { type: 'LINK', title: 'Facebook', action: 'facebook.com/m4rco.ambrosi' },
+    { type: 'LINK', title: 'Instagram', action: 'instagram.com/4mbromark' },
+    { type: 'LINK', title: 'LinkedIn', action: 'https://www.linkedin.com/in/marco-ambrosi/' }
+  ];
+
+  public static CARD_LIST: CustomCard[] = [
+    { type: 'COMPLETE', title: 'Pholayider', subtitle: '@pholayider', text: 'Dal lontano 2019, porto sempre con me una vecchia Polaroid alle fiere cosplay. Cosa mai potrà andare storto?', buttons: [
+      { type: 'LINK', title: 'Facebook', action: 'facebook.com/pholayider' },
+      { type: 'LINK', title: 'Instagram', action: 'instagram.com/pholayider' },
+      { type: 'PAGE', title: 'Come tutto iniziò', action: 'instagram.com/pholayider' }
+    ], infos: [
+      { type: 'CONTACT', info: [
+        'clsupproject@gmail.com',
+      ]}
+    ]},
+    { type: 'COMPLETE', title: 'Eraclea Insider', subtitle: '@eraclea.in', buttons: [
+      { type: 'LINK', title: 'Facebook', action: 'facebook.com/eraclea.in' },
+      { type: 'LINK', title: 'Instagram', action: 'instagram.com/eraclea.in' }
+    ], infos: [
+      { type: 'CONTACT', info: [
+        'clsupproject@gmail.com',
+      ]}
+    ]},
+    { type: 'COMPLETE', title: 'Bellowsgraphy', subtitle: '@bellowsgraphy', buttons: [
+      { type: 'LINK', title: 'Facebook', action: 'facebook.com/bellowsgraphy' },
+      { type: 'LINK', title: 'Instagram', action: 'instagram.com/bellowsgraphy' }
+    ], infos: [
+      { type: 'CONTACT', info: [
+        'clsupproject@gmail.com',
+      ]}
+    ]},
+    { type: 'BUTTON', title: 'Altro :D', text: 'Puoi trovarmi anche qui. Seguimi se ti va!', buttons: [
+      { type: 'LINK', title: 'Steam', action: 'facebook.com/bellowsgraphy' },
+      { type: 'LINK', title: 'MyAnimeList', action: 'instagram.com/bellowsgraphy' }
+    ]}
   ];
 }

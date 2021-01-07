@@ -1,0 +1,8 @@
+<div class="refs-flex-center">
+  <mat-list class="info">
+    <mat-list-item *ngFor="let info of infos">
+      <fa-icon mat-list-icon [icon]="getInfoIcon(info)" size="sm"></fa-icon>
+      <div mat-line *ngFor="let i of info.info" style="margin: -3px 0px;">{{ i }}</div>
+    </mat-list-item>
+  </mat-list>
+</div>

@@ -1,14 +1,15 @@
 <mat-toolbar class="refs-flex-center board-userinfo mat-elevation-z2">
   <div class="refs-100-100">
 
-    <div #mainCard class="refs-row refs-flex-center board-main-card" [style]="smallScreen ? 'text-align: center; margin-top: 20px;' : 'text-align: justify;'">
-        <img class="board-main-propic" src="assets/static/main-propic.jpg">
-        <div class="board-main-refs refs-column">
-          <span style="font-size: larger;"><b>{{static.MAIN_USER_NAME}}</b></span>
-          <span style="font-size: large;"><i>{{static.MAIN_USER_PSEUDONYM}}</i></span>
-          <span>{{static.MAIN_USER_PROFILE}}</span>
-          <span style="font-size: large;">{{static.MAIN_USER_SENTENCE}}</span>
-        </div>
+    <div #mainCard class="refs-row refs-flex-center board-main-card"
+      [style]="smallScreen ? 'text-align: center; margin-top: 20px;' : 'text-align: justify;'">
+      <img class="board-main-propic" src="assets/static/main-propic.jpg">
+      <div class="board-main-refs refs-column">
+        <span style="font-size: larger;"><b>{{static.MAIN_USER_NAME}}</b></span>
+        <span style="font-size: large;"><i>{{static.MAIN_USER_PSEUDONYM}}</i></span>
+        <span>{{static.MAIN_USER_PROFILE}}</span>
+        <span style="font-size: large;">{{static.MAIN_USER_SENTENCE}}</span>
+      </div>
 
     </div>
 
@@ -20,23 +21,11 @@
       </span>
     </div>
 
-    <div class="refs-flex-center">
-      <mat-list class="board-main-info">
-        <mat-list-item *ngFor="let info of static.MAIN_USER_INFO">
-          <fa-icon mat-list-icon [icon]="getInfoIcon(info)" size="sm"></fa-icon>
-          <div mat-line *ngFor="let i of info.info" style="margin: -3px 0px;">{{ i }}</div>
-        </mat-list-item>
-      </mat-list>
-    </div>
+    <app-board-infos *ngIf="static.MAIN_USER_INFO" [infos]="static.MAIN_USER_INFO"></app-board-infos>
 
     <!--<mat-divider class="board-main-divider"></mat-divider>-->
 
-    <div class="refs-column refs-flex-center">
-      <button mat-raised-button *ngFor="let button of static.MAIN_BUTTON" class="board-main-button" (click)="getButtonAction(button);">
-        {{button.title}}
-      </button>
-    </div>
-
+    <app-board-buttons *ngIf="static.MAIN_USER_BUTTON" [buttons]="static.MAIN_USER_BUTTON"></app-board-buttons>
 
   </div>
 

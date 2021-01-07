@@ -1,5 +1,9 @@
-export class CustomButton {
+import { CustomObject } from './CustomObject';
+
+export class CustomButton extends CustomObject {
   title: string;
+  subtitle?: string;
+  image?: string;
 
   type: 'LINK' | 'PAGE';
   action: string;
@@ -7,5 +11,4 @@ export class CustomButton {
   icon?: string;
   color?: string;
   colorRow?: string;
-  image?: string;
 }

@@ -1,0 +1,7 @@
+.button {
+  width: 80%;
+  margin: 10px 10px 0px 10px;
+  border: solid 2px black;
+  font-size: large;
+  font-weight: 500;
+}

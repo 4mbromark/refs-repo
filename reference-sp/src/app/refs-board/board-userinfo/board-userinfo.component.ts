@@ -34,32 +34,4 @@ export class BoardUserinfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getInfoIcon(info: CustomInfo): string {
-    switch (info.type) {
-      case InfoTag.TYPE_BIRTHDAY: {
-        return 'birthday-cake';
-      }
-      case InfoTag.TYPE_PLACE: {
-        return 'map-marker-alt';
-      }
-      case InfoTag.TYPE_CONTACT: {
-        return 'envelope';
-      }
-    }
-  }
-
-  getButtonAction(button: CustomButton): void {
-    switch (button.type) {
-      case ButtonTag.TYPE_LINK: {
-        let url = '';
-        if (!/^http[s]?:\/\//.test(button.action)) {
-          url += 'http://';
-        }
-
-        url += button.action;
-        window.open(url, '_blank');
-      }
-    }
-  }
-
 }

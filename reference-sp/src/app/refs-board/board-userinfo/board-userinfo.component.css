@@ -23,18 +23,6 @@
   line-height: 25px;
   text-align: center;
 }
-.board-main-info {
-  font-size: medium;
-  align-items: center;
-  margin: 0px 30px
-}
-.board-main-button {
-  width: 60%;
-  margin: 10px 10px 0px 10px;
-  border: solid 2px black;
-  font-size: large;
-  font-weight: 500;
-}
 .board-main-divider {
   margin: 10px 50px;
 }

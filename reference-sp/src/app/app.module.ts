@@ -12,16 +12,22 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BoardManagerComponent } from './refs-board/board-manager/board-manager.component';
+import { BoardComponent } from './refs-board/board.component';
 import { BoardUserinfoComponent } from './refs-board/board-userinfo/board-userinfo.component';
 import { BoardFooterComponent } from './refs-board/board-footer/board-footer.component';
+import { BoardCardlistComponent } from './refs-board/board-cardlist/board-cardlist.component';
+import { BoardButtonsComponent } from './refs-board/board-customobjects/board-buttons/board-buttons.component';
+import { BoardInfosComponent } from './refs-board/board-customobjects/board-infos/board-infos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardManagerComponent,
+    BoardComponent,
     BoardUserinfoComponent,
-    BoardFooterComponent
+    BoardFooterComponent,
+    BoardCardlistComponent,
+    BoardButtonsComponent,
+    BoardInfosComponent
   ],
   imports: [
     AngularModules,
