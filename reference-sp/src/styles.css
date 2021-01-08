@@ -6,7 +6,8 @@ body {
 
 :root {
   --refs-hf-color: rgb(0, 9, 111);
-  --refs-main-blue: aliceblue;
+  --refs-main-aliceblue: aliceblue;
+  --refs-main-ffamily: Segoe UI, Arial;
 }
 
 @font-face {
@@ -73,6 +74,10 @@ body {
   flex: 1 1 auto;
 }
 
+.refs-no-select {
+  user-select: none;
+}
+
 /* OVERRIDE ANGULAR */
 .mat-list-base {
   width: min-content;
@@ -83,4 +88,17 @@ body {
 }
 .mat-list-icon {
   height: unset !important;
+}
+.mat-snack-bar-container {
+  color: white;
+  min-width: unset !important;
+  background-color: var(--refs-hf-color);
+}
+.mat-snack-bar-handset {
+  width: unset !important;
+}
+
+/* OVERIDE SCROLLBAR */
+::-webkit-scrollbar {
+  display: none;
 }

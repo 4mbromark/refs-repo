@@ -1,16 +1,21 @@
 <div [class]="smartphone ? 'refs-m10' : 'refs-m20'">
   <mat-card *ngFor="let card of static.CARD_LIST" class="card">
-    <mat-card-header *ngIf="card.title">
-      <mat-card-title><b>{{card.title}}</b></mat-card-title>
-      <mat-card-subtitle *ngIf="card.subtitle">{{card.subtitle}}</mat-card-subtitle>
+    <mat-card-header *ngIf="card.title" [class]="card.caption ? 'card-header' : 'card-header-no-caption'">
+      <img mat-card-avatar *ngIf="card.avatar" class="card-avatar" [src]="card.avatar">
+      <mat-card-title class="card-title"><b>{{card.title.text}}</b></mat-card-title>
+      <mat-card-subtitle *ngIf="card.subtitle" class="card-subtitle">{{card.subtitle.text}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p class="card-text">
-        {{card.text}}
-      </p>
+
+      <p *ngIf="card.caption" class="card-caption">{{card.caption}}</p>
+
+      <img mat-card-image *ngIf="card.image" [src]="card.image" [style]="card.text ? 'margin-bottom: 0px !important' : ''">
+
+      <p *ngIf="card.text" class="card-text">{{card.text}}</p>
+
+      <!--<mat-divider class="card-divider"></mat-divider>-->
 
       <app-board-infos *ngIf="card.infos" [infos]="card.infos"></app-board-infos>
-
       <app-board-buttons *ngIf="card.buttons" [buttons]="card.buttons"></app-board-buttons>
 
     </mat-card-content>

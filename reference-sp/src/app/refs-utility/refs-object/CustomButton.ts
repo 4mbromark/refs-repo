@@ -1,14 +1,18 @@
-import { CustomObject } from './CustomObject';
+import { CustomTextline } from './CustomTextline';
+import { Custom } from './Custom';
 
-export class CustomButton extends CustomObject {
-  title: string;
-  subtitle?: string;
-  image?: string;
+export class CustomButton extends Custom {
+  title: CustomTextline;
+  subtitle?: CustomTextline;
+  avatar?: string;
 
   type: 'LINK' | 'PAGE';
   action: string;
 
   icon?: string;
   color?: string;
-  colorRow?: string;
+
+  border?: string;
+  radius?: string;
+  background?: string;
 }

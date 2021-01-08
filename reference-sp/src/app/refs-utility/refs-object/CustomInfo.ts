@@ -1,6 +1,6 @@
-import { CustomObject } from './CustomObject';
+import { Custom } from './Custom';
 
-export class CustomInfo extends CustomObject {
+export class CustomInfo extends Custom {
   type: 'BIRTHDAY' | 'PLACE' | 'CONTACT';
   info: string[];
 }

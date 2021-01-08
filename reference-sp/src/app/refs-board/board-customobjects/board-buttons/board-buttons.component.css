@@ -2,6 +2,16 @@
   width: 80%;
   margin: 10px 10px 0px 10px;
   border: solid 2px black;
-  font-size: large;
+}
+
+.button-title, .button-subtitle {
   font-weight: 500;
+  white-space: normal;
+}
+.button-title {
+  font-size: large;
+}
+.button-subtitle {
+  font-size: small;
+  margin-top: -10px;
 }

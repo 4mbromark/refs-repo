@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 // ANGULAR MATERIAL MODULES
@@ -18,6 +19,7 @@ import { BoardFooterComponent } from './refs-board/board-footer/board-footer.com
 import { BoardCardlistComponent } from './refs-board/board-cardlist/board-cardlist.component';
 import { BoardButtonsComponent } from './refs-board/board-customobjects/board-buttons/board-buttons.component';
 import { BoardInfosComponent } from './refs-board/board-customobjects/board-infos/board-infos.component';
+import { StandardSnackbarComponent } from './refs-utility/refs-standard/standard-snackbar/standard-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { BoardInfosComponent } from './refs-board/board-customobjects/board-info
     BoardFooterComponent,
     BoardCardlistComponent,
     BoardButtonsComponent,
-    BoardInfosComponent
+    BoardInfosComponent,
+    StandardSnackbarComponent
   ],
   imports: [
     AngularModules,
     FontAwesomeModule,
 
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,6 +1,8 @@
+import { SnackbarService } from './../../../refs-utility/refs-service/snackbar.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { InfoTag } from 'src/app/refs-utility/refs-enum/InfoTag';
 import { CustomInfo } from 'src/app/refs-utility/refs-object/CustomInfo';
+import { ClipboardService } from 'src/app/refs-utility/refs-service/clipboard.service';
 
 @Component({
   selector: 'app-board-infos',
@@ -10,7 +12,9 @@ import { CustomInfo } from 'src/app/refs-utility/refs-object/CustomInfo';
 export class BoardInfosComponent implements OnInit {
   @Input() infos: CustomInfo[];
 
-  constructor() { }
+  constructor(
+    private clipboardService: ClipboardService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +31,10 @@ export class BoardInfosComponent implements OnInit {
         return 'envelope';
       }
     }
+  }
+
+  copyToClipboard(info: string): void {
+    this.clipboardService.copyWithMessage(info);
   }
 
 }

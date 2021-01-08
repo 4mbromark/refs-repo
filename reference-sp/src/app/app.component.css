@@ -1,6 +1,6 @@
 .reference {
   overflow: hidden;
-  background-color: var(--refs-main-blue);
+  background-color: var(--refs-main-aliceblue);
 }
 .board, .board-big, .board-small {
   height: 100%;
