@@ -1,5 +1,6 @@
+import { RoutingService } from './../../../refs-utility/refs-service/routing.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { ButtonTag } from 'src/app/refs-utility/refs-enum/ButtonTag';
+import { ButtonTag } from 'src/app/refs-utility/refs-enum/button-tag';
 import { CustomButton } from 'src/app/refs-utility/refs-object/CustomButton';
 
 @Component({
@@ -10,9 +11,19 @@ import { CustomButton } from 'src/app/refs-utility/refs-object/CustomButton';
 export class BoardButtonsComponent implements OnInit {
   @Input() buttons: CustomButton[];
 
-  constructor() { }
+  constructor(
+    private routingService: RoutingService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  getButtonStyle(button: CustomButton): string {
+    let style = '';
+    if (button.background) {
+      style += 'background-color: ' + button.background + '; ';
+    }
+    return style;
   }
 
   getButtonAction(button: CustomButton): void {
@@ -25,6 +36,11 @@ export class BoardButtonsComponent implements OnInit {
 
         url += button.action;
         window.open(url, '_blank');
+        break;
+      }
+      case ButtonTag.TYPE_PAGE: {
+        this.routingService.goToPage(button.action);
+        break;
       }
     }
   }

@@ -1,9 +1,9 @@
 import { StaticInfo } from './../../refs-utility/refs-static/StaticInfo';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ButtonTag } from 'src/app/refs-utility/refs-enum/ButtonTag';
+import { ButtonTag } from 'src/app/refs-utility/refs-enum/button-tag';
 import { CustomButton } from 'src/app/refs-utility/refs-object/CustomButton';
 import { CustomInfo } from 'src/app/refs-utility/refs-object/CustomInfo';
-import { InfoTag } from 'src/app/refs-utility/refs-enum/InfoTag';
+import { InfoTag } from 'src/app/refs-utility/refs-enum/info-tag';
 
 @Component({
   selector: 'app-board-cardlist',

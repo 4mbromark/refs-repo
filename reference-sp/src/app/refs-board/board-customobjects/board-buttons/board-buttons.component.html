@@ -1,5 +1,5 @@
 <div class="refs-column refs-flex-center">
-  <button mat-raised-button *ngFor="let button of buttons" class="button" (click)="getButtonAction(button);">
+  <button mat-raised-button *ngFor="let button of buttons" class="button" [style]="getButtonStyle(button)" (click)="getButtonAction(button);">
 
     <div class="refs-column">
       <span class="button-title">{{button.title.text}}</span>

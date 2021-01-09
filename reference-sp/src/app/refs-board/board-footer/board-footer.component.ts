@@ -1,3 +1,4 @@
+import { RoutingService } from './../../refs-utility/refs-service/routing.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private routingService: RoutingService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  goToHome(): void {
+    this.routingService.goToHome();
   }
 
 }

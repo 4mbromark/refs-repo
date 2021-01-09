@@ -1,9 +1,9 @@
-import { InfoTag } from './../../refs-utility/refs-enum/InfoTag';
+import { InfoTag } from '../../refs-utility/refs-enum/info-tag';
 import { CustomInfo } from './../../refs-utility/refs-object/CustomInfo';
 import { CustomButton } from './../../refs-utility/refs-object/CustomButton';
 import { StaticInfo } from '../../refs-utility/refs-static/StaticInfo';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { ButtonTag } from 'src/app/refs-utility/refs-enum/ButtonTag';
+import { ButtonTag } from 'src/app/refs-utility/refs-enum/button-tag';
 
 @Component({
   selector: 'app-board-userinfo',

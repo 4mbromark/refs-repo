@@ -1,6 +1,6 @@
 import { SnackbarService } from './../../../refs-utility/refs-service/snackbar.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { InfoTag } from 'src/app/refs-utility/refs-enum/InfoTag';
+import { InfoTag } from 'src/app/refs-utility/refs-enum/info-tag';
 import { CustomInfo } from 'src/app/refs-utility/refs-object/CustomInfo';
 import { ClipboardService } from 'src/app/refs-utility/refs-service/clipboard.service';
 

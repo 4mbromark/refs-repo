@@ -15,10 +15,6 @@
   margin: 2px
 }
 
-.card-image {
-  width: min-content;
-}
-
 .card-title, .card-subtitle, .card-caption, .card-text {
   font-family:  var(--refs-main-ffamily);
 }

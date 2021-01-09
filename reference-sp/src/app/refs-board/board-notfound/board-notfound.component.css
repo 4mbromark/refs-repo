@@ -1,0 +1,25 @@
+.notfound-text, .notfound-subtext, .notfound-cookie, .notfound-button {
+  color: white;
+}
+.notfound-text, .notfound-subtext {
+  font-family: var(--refs-main-ffamily);
+  white-space: wrap;
+  text-align: center;
+}
+.notfound-text {
+  font-size: 25px;
+  font-weight: 600;
+  width: 70%;
+}
+.notfound-subtext {
+  font-size: 20px;
+  font-weight: 500;
+  width: 60%;
+}
+.notfound-cookie {
+  margin: 20px;
+}
+.notfound-button {
+  line-height: 0px;
+  margin: 20px;
+}

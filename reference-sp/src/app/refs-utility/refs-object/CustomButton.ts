@@ -4,13 +4,12 @@ import { Custom } from './Custom';
 export class CustomButton extends Custom {
   title: CustomTextline;
   subtitle?: CustomTextline;
-  avatar?: string;
+  // avatar?: string;
 
   type: 'LINK' | 'PAGE';
   action: string;
 
-  icon?: string;
-  color?: string;
+  // icon?: string;
 
   border?: string;
   radius?: string;

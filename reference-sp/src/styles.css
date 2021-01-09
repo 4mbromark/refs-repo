@@ -78,6 +78,11 @@ body {
   user-select: none;
 }
 
+.refs-spacer-layout {
+  display: flex;
+  flex-flow: column;
+}
+
 /* OVERRIDE ANGULAR */
 .mat-list-base {
   width: min-content;

@@ -1,5 +1,5 @@
 <div [class]="smartphone ? 'refs-m10' : 'refs-m20'">
-  <mat-card *ngFor="let card of static.CARD_LIST" class="card">
+  <mat-card *ngFor="let card of static.CARD_LIST" class="refs-no-select card">
     <mat-card-header *ngIf="card.title" [class]="card.caption ? 'card-header' : 'card-header-no-caption'">
       <img mat-card-avatar *ngIf="card.avatar" class="card-avatar" [src]="card.avatar">
       <mat-card-title class="card-title"><b>{{card.title.text}}</b></mat-card-title>

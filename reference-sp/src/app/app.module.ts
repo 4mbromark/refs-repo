@@ -20,6 +20,9 @@ import { BoardCardlistComponent } from './refs-board/board-cardlist/board-cardli
 import { BoardButtonsComponent } from './refs-board/board-customobjects/board-buttons/board-buttons.component';
 import { BoardInfosComponent } from './refs-board/board-customobjects/board-infos/board-infos.component';
 import { StandardSnackbarComponent } from './refs-utility/refs-standard/standard-snackbar/standard-snackbar.component';
+import { BoardPageComponent } from './refs-board/board-page/board-page.component';
+import { BoardNotfoundComponent } from './refs-board/board-notfound/board-notfound.component';
+import { HomeComponent } from './refs-home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { StandardSnackbarComponent } from './refs-utility/refs-standard/standard
     BoardCardlistComponent,
     BoardButtonsComponent,
     BoardInfosComponent,
-    StandardSnackbarComponent
+    StandardSnackbarComponent,
+    BoardPageComponent,
+    BoardNotfoundComponent,
+    HomeComponent
   ],
   imports: [
     AngularModules,

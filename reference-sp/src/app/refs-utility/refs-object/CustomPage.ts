@@ -1,10 +1,10 @@
 import { CustomInfo } from './CustomInfo';
-import { CustomButton } from './CustomButton';
 import { Custom } from './Custom';
+import { CustomButton } from './CustomButton';
 import { CustomTextline } from './CustomTextline';
 
-export class CustomCard extends Custom {
-  type: 'TEXT' | 'BUTTON' | 'COMPLETE' | 'SURVEY' | 'MESSAGE';
+export class CustomPage extends Custom {
+  page: string;
 
   title?: CustomTextline;
   subtitle?: CustomTextline;
@@ -14,12 +14,9 @@ export class CustomCard extends Custom {
   text?: string;
 
   image?: string;
-  // imagePosition?: 'TOP' | 'BOTTOM';
 
   infos?: CustomInfo[];
   buttons?: CustomButton[];
 
-  // border?: string;
-  // radius?: string;
   background?: string;
 }
