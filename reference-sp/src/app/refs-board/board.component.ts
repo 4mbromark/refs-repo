@@ -1,3 +1,5 @@
+import { TitleService } from './../refs-utility/refs-service/title.service';
+import { AlixService } from './../refs-utility/refs-service/alix.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private alixService: AlixService,
+    private titleService: TitleService
+  ) { }
 
   ngOnInit(): void {
+    this.alixService.getAlix().subscribe((alix: string) => {
+      if (alix) {
+        this.titleService.setTitleWithAlix(alix);
+      }
+    });
   }
 
 }

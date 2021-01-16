@@ -2,7 +2,8 @@ import { RoutingService } from './../../refs-utility/refs-service/routing.servic
 import { CustomPage } from './../../refs-utility/refs-object/CustomPage';
 import { AlixService } from './../../refs-utility/refs-service/alix.service';
 import { StaticInfo } from './../../refs-utility/refs-static/StaticInfo';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Sanitizer } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-board-page',

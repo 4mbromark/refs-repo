@@ -1,3 +1,5 @@
+import { CustomTextline } from './../../../refs-utility/refs-object/CustomTextline';
+import { StyleService } from './../../../refs-utility/refs-service/style.service';
 import { RoutingService } from './../../../refs-utility/refs-service/routing.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ButtonTag } from 'src/app/refs-utility/refs-enum/button-tag';
@@ -12,18 +14,19 @@ export class BoardButtonsComponent implements OnInit {
   @Input() buttons: CustomButton[];
 
   constructor(
+    private styleService: StyleService,
     private routingService: RoutingService
   ) { }
 
   ngOnInit(): void {
   }
 
+  getTextStyle(text: CustomTextline): string {
+    return '';
+    // return this.styleService.getTextStyle(text);
+  }
   getButtonStyle(button: CustomButton): string {
-    let style = '';
-    if (button.background) {
-      style += 'background-color: ' + button.background + '; ';
-    }
-    return style;
+    return this.styleService.getButtonStyle(button);
   }
 
   getButtonAction(button: CustomButton): void {

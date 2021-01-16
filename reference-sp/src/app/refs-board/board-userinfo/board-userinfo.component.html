@@ -1,32 +1,31 @@
 <mat-toolbar class="refs-flex-center board-userinfo mat-elevation-z2">
   <div class="refs-100-100">
 
-    <div #mainCard class="refs-row refs-flex-center board-main-card"
-      [style]="smallScreen ? 'text-align: center; margin-top: 20px;' : 'text-align: justify;'">
-      <img class="board-main-propic" src="assets/static/main-propic.jpg">
-      <div class="board-main-refs refs-column">
-        <span style="font-size: larger;"><b>{{static.MAIN_USER_NAME}}</b></span>
-        <span style="font-size: large;"><i>{{static.MAIN_USER_PSEUDONYM}}</i></span>
-        <span>{{static.MAIN_USER_PROFILE}}</span>
-        <span style="font-size: large;">{{static.MAIN_USER_SENTENCE}}</span>
+    <div class="refs-flex-center">
+      <div #mainCard class="refs-row refs-flex-center board-main-card"  [style]="smallScreen ? 'text-align: center; margin-top: 20px;' : 'text-align: justify; margin: 5px; 0px'">
+        <img class="board-main-propic" src="assets/static/main-propic.jpg" [style]="smallScreen ? '' : 'margin-right:20px;'">
+        <div class="board-main-refs refs-column">
+          <span style="font-size: larger;"><b>{{static.name}}</b></span>
+          <span style="font-size: large;"><i>{{static.pseudonym}}</i></span>
+          <span *ngIf="static.profile" style="font-size: large;">{{static.profile}}</span>
+          <span *ngIf="static.sentence" style="font-size: large;">{{static.sentence}}</span>
+        </div>
       </div>
-
     </div>
 
     <mat-divider class="board-main-divider"></mat-divider>
 
-    <div class="refs-flex-center">
+    <div *ngIf="static.bio" class="refs-flex-center">
       <span class="board-main-bio">
-        {{static.MAIN_USER_BIO}}
+        {{static.bio}}
       </span>
     </div>
 
-    <app-board-infos *ngIf="static.MAIN_USER_INFO" [infos]="static.MAIN_USER_INFO"></app-board-infos>
+    <app-board-infos *ngIf="static.infos" [infos]="static.infos"></app-board-infos>
 
     <!--<mat-divider class="board-main-divider"></mat-divider>-->
 
-    <app-board-buttons *ngIf="static.MAIN_USER_BUTTON" [buttons]="static.MAIN_USER_BUTTON"></app-board-buttons>
+    <app-board-buttons *ngIf="static.buttons" [buttons]="static.buttons"></app-board-buttons>
 
   </div>
-
 </mat-toolbar>

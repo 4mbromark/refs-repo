@@ -1,9 +1,5 @@
-import { InfoTag } from '../../refs-utility/refs-enum/info-tag';
-import { CustomInfo } from './../../refs-utility/refs-object/CustomInfo';
-import { CustomButton } from './../../refs-utility/refs-object/CustomButton';
 import { StaticInfo } from '../../refs-utility/refs-static/StaticInfo';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { ButtonTag } from 'src/app/refs-utility/refs-enum/button-tag';
 
 @Component({
   selector: 'app-board-userinfo',
@@ -13,7 +9,7 @@ import { ButtonTag } from 'src/app/refs-utility/refs-enum/button-tag';
 export class BoardUserinfoComponent implements OnInit {
   @ViewChild('mainCard') mainCard: ElementRef;
 
-  static = StaticInfo;
+  static = StaticInfo.USER_INFO;
 
   smallScreen = false;
 
@@ -28,7 +24,7 @@ export class BoardUserinfoComponent implements OnInit {
   constructor() {
     setTimeout(() => {
       this.onResize();
-    }, 100);
+    }, 200);
   }
 
   ngOnInit(): void {

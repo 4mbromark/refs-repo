@@ -24,19 +24,11 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
   constructor(
-    private pageTitle: Title,
-    private alixService: AlixService,
-    private storageService: StorageService
   ) {
     this.onResize();
   }
 
   ngOnInit(): void {
-    this.alixService.getAlix().subscribe((alix: string) => {
-      if (alix) {
-        this.pageTitle.setTitle(alix + ' - Reference');
-      }
-    });
   }
 
   ngOnDestroy(): void {

@@ -2,8 +2,8 @@
   <button mat-raised-button *ngFor="let button of buttons" class="button" [style]="getButtonStyle(button)" (click)="getButtonAction(button);">
 
     <div class="refs-column">
-      <span class="button-title">{{button.title.text}}</span>
-      <span *ngIf="button.subtitle" class="button-subtitle">{{button.subtitle.text}}</span>
+      <span class="button-title" [style]="getTextStyle(button.title)">{{button.title.text}}</span>
+      <span *ngIf="button.subtitle" class="button-subtitle" [style]="getTextStyle(button.subtitle)">{{button.subtitle.text}}</span>
     </div>
 
   </button>

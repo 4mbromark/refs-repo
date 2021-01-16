@@ -1,8 +1,7 @@
 .footer-button {
   color: white;
   margin: 10px;
-  display: table-footer-group;
-
+  border-radius: 0px;
 }
 .footer-text {
   font-size: 25px;
