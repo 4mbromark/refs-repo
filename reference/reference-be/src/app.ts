@@ -1,6 +1,7 @@
-import { BaseRest } from './app/refs-utility/refs-base/base-rest';
-import { router as user } from './app/refs-rest/user-rest';
 import express, { Application, Router } from 'express';
+
+import { router as user } from './app/refs-rest/user-rest';
+import { router as alix } from './app/refs-rest/alix-rest';
 
 const port = 3000;
 
@@ -39,7 +40,7 @@ class Reference {
 
   private setRouters(): void {
     //this.rests.push(new UserRest(this.app, new UserService( new UserDao())));
-    this.app.use(user);
+    this.app.use(user, alix);
   }
 }
 

@@ -1,18 +1,19 @@
+import { DaoUtil } from "../refs-utility/refs-util/dao-util";
 import { User } from "../refs-utility/refs-db/entity/reguser";
 
 export class UserDao {
-    public async getUserById(id: number) { 
+    public static async getUserById(id: number) { 
         const user = await User.findByPk(id);
-        return user;
+        return DaoUtil.ifNotNull(user);
     }
 
-    public async getUserByEmail(email: string) { 
+    public static async getUserByEmail(email: string) { 
         const user = await User.findOne({
             where: {
                 email: email,
             }
         });
-        return user;
+        return DaoUtil.ifNotNull(user);
     }
 }
 

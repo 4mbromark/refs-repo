@@ -1,16 +1,14 @@
-import { UserDao } from '../refs-dao/user-dao';
+import { UserDao } from './../refs-dao/user-dao';
+
+var userDao = UserDao;
 
 export class UserService {
 
-    constructor(
-        private userDao: UserDao
-    ) {}
-
-    public async getUserById(id: number) {
-        return await this.userDao.getUserById(id);
+    public static async getUserById(id: number) {
+        return await userDao.getUserById(id);
     }
 
-    public async getUserByEmail(email: string) {
-        return await this.userDao.getUserByEmail(email);
+    public static async getUserByEmail(email: string) {
+        return await userDao.getUserByEmail(email);
     }
 }
