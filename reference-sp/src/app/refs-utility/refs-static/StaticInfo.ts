@@ -35,7 +35,7 @@ export class StaticInfo {
       subtitle: { text: '@pholayider aka Uomo Polaroid :D' },
       avatar: 'assets/static/card/avatar/card-pholayider-avatar.jpg',
       caption: 'Dal lontano 2019, porto sempre con me una Polaroid alle fiere cosplay. Cosa mai potrà andare storto?',
-      text: 'Utilizzo una fotocamera digitale e una vecchia Polaroid SX-70 per immortalare i migliori cosplayer alle fiere del fumetto. Adoro soprattutti i coloratissimi personaggi di anime e manga.',
+      text: 'Utilizzo una fotocamera digitale e una vecchia Polaroid SX-70 per immortalare i migliori cosplayer alle fiere del fumetto. Adoro soprattutto i coloratissimi personaggi di anime e manga.',
       image: 'assets/static/card/image/card-pholayider-image.jpg',
       buttons: [
         { type: 'LINK', title:  { text: 'Facebook' }, action: 'facebook.com/pholayider' },
@@ -54,7 +54,7 @@ export class StaticInfo {
       title: { text: 'Eraclea Insider' },
       subtitle: { text: '@eraclea.in' },
       avatar: 'assets/static/card/avatar/card-eracleain-avatar.jpg',
-      text: 'Affezzionato da anni a questa piccola località, condivido alcune fotografie, scattate dalla pineta fino alla riva del mare.',
+      text: 'Affezionato da anni a questa piccola località, condivido alcune fotografie, scattate dalla pineta fino alla riva del mare.',
       buttons: [
         { type: 'LINK', title: { text: 'Facebook' }, action: 'facebook.com/eraclea.in' },
         { type: 'LINK', title: { text: 'Instagram' }, action: 'instagram.com/eraclea.in' }
