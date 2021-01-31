@@ -1,0 +1,109 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0px;
+}
+
+:root {
+  --refs-hf-color: rgb(0, 9, 111);
+  --refs-main-aliceblue: aliceblue;
+  --refs-main-ffamily: Segoe UI, Arial;
+}
+
+@font-face {
+  font-family: 'Reference'; /*a name to be used later*/
+  src: url('./assets/font/mplus-2c-bold.ttf'); /*URL to font*/
+}
+
+.refs-100-100 {
+  width: 100% !important;
+  height: 100% !important;
+}
+.refs-abs-100 {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.refs-w100 {
+  width: 100% !important;
+}
+.refs-h100 {
+  height: 100% !important;
+}
+
+.refs-m10 {
+  margin: 10px;
+}
+.refs-m20 {
+  margin: 20px;
+}
+.refs-p10 {
+  padding: 10px;
+}
+
+.refs-row,
+.refs-column {
+  display: flex;
+}
+.refs-row {
+  flex-direction: row;
+}
+.refs-column {
+  flex-direction: column;
+}
+
+.refs-flex-center,
+.refs-flex-left,
+.refs-flex-right {
+  display: flex;
+  align-items: center;
+}
+.refs-flex-center {
+  justify-content: space-around;
+}
+.refs-flex-left {
+  justify-content: flex-start;
+}
+.refs-flex-right {
+  justify-content: flex-end;
+}
+
+.refs-spacer {
+  flex: 1 1 auto;
+}
+
+.refs-no-select {
+  user-select: none;
+}
+
+.refs-spacer-layout {
+  display: flex;
+  flex-flow: column;
+}
+
+/* OVERRIDE ANGULAR */
+.mat-list-base {
+  width: min-content;
+}
+.mat-list-item {
+  margin-top: -15px;
+  line-height: 30px;
+}
+.mat-list-icon {
+  height: unset !important;
+}
+.mat-snack-bar-container {
+  color: white;
+  min-width: unset !important;
+  background-color: var(--refs-hf-color);
+}
+.mat-snack-bar-handset {
+  width: unset !important;
+}
+
+/* OVERIDE SCROLLBAR */
+::-webkit-scrollbar {
+  display: none;
+}

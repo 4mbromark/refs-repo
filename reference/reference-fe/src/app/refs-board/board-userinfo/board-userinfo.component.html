@@ -1,0 +1,31 @@
+<mat-toolbar class="refs-flex-center board-userinfo mat-elevation-z2">
+  <div class="refs-100-100">
+
+    <div class="refs-flex-center">
+      <div #mainCard class="refs-row refs-flex-center board-main-card"  [style]="smallScreen ? 'text-align: center; margin-top: 20px;' : 'text-align: justify; margin: 5px; 0px'">
+        <img class="board-main-propic" src="assets/static/main-propic.jpg" [style]="smallScreen ? '' : 'margin-right:20px;'">
+        <div class="board-main-refs refs-column">
+          <span style="font-size: larger;"><b>{{static.name}}</b></span>
+          <span style="font-size: large;"><i>{{static.pseudonym}}</i></span>
+          <span *ngIf="static.profile" style="font-size: large;">{{static.profile}}</span>
+          <span *ngIf="static.sentence" style="font-size: large;">{{static.sentence}}</span>
+        </div>
+      </div>
+    </div>
+
+    <mat-divider class="board-main-divider"></mat-divider>
+
+    <div *ngIf="static.bio" class="refs-flex-center">
+      <span class="board-main-bio">
+        {{static.bio}}
+      </span>
+    </div>
+
+    <app-board-infos *ngIf="static.infos" [infos]="static.infos"></app-board-infos>
+
+    <!--<mat-divider class="board-main-divider"></mat-divider>-->
+
+    <app-board-buttons *ngIf="static.buttons" [buttons]="static.buttons"></app-board-buttons>
+
+  </div>
+</mat-toolbar>

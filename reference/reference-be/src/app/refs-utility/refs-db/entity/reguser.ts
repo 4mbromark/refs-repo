@@ -1,7 +1,19 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../config/dbconfig';
 
-export const User = sequelize.define('User', {
+export class User extends Model {
+    id: number;
+    name: string;
+    surname: string;
+    username: string;
+    email: string;
+    password: string;
+    gender: string;
+    insertDate: Date;
+    updateDate: Date;
+}
+
+User.init({
     id: { field: 'ID', type: DataTypes.BIGINT, primaryKey: true },
     name: { field: 'NAME', type: DataTypes.STRING, allowNull: false },
     surname: { field: 'SURNAME', type: DataTypes.STRING, allowNull: false },
@@ -12,8 +24,11 @@ export const User = sequelize.define('User', {
     insertDate: { field: 'INSERT_DATE', type: DataTypes.DATE },
     updateDate: { field: 'UPDATE_DATE', type: DataTypes.DATE }
 }, {
+    sequelize,
+    modelName: 'User',
     tableName: 'REFS_REGUSER',
 
     createdAt: false,
     updatedAt: false
 });
+

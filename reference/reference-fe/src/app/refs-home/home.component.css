@@ -1,0 +1,23 @@
+.logo {
+  color: white;
+  margin: 10px;
+}
+.logo-text {
+  font-size: 35px;
+  font-family: Reference;
+  font-weight: 900;
+}
+
+.text {
+  color: white;
+  font-size: larger;
+  font-family: var(--refs-main-ffamily);
+  margin: 10%;
+  text-align: center;
+}
+
+.admin-text {
+  color: white;
+  font-size: 20px;
+  font-family: var(--refs-main-ffamily);
+}

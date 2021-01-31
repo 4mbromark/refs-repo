@@ -1,12 +1,13 @@
 import { QueryTypes } from "sequelize";
 import { Sequelize } from "sequelize";
-import { DatabaseData } from "./dbdata";
+import { Env } from "../../refs-env/future-env";
 
-export const sequelize = new Sequelize(DatabaseData.DATABASE_NAME, DatabaseData.DATABASE_USERNAME, DatabaseData.DATABASE_PASSWORD, {
-    host: DatabaseData.DATABASE_HOST,
-    dialect: 'mysql',
+export const sequelize = new Sequelize(Env.DB_NAME, Env.DB_USERNAME, Env.DB_PASSWORD, {
+    host: Env.DB_HOSTURL,
+    dialect: 'mysql', // TODO
     query: {
         raw: true,
+        logging: false,
         type: QueryTypes.SELECT
     }
 });

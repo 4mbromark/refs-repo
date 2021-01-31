@@ -1,32 +1,32 @@
 import { DaoUtil } from '../refs-utility/refs-util/dao-util';
 import { Op } from "sequelize";
-import { Alix } from "../refs-utility/refs-db/entity/alix";
+import { Alix } from '../refs-utility/refs-db/entity/alixlist';
 
 export class AlixDao {
-    public static async getAlixById(id: number) { 
+    public static async getAlixById(id: number): Promise<Alix> { 
         const alix = await Alix.findByPk(id);
-        return DaoUtil.ifNotNull(alix);
+        return alix;
     }
 
-    public static async getAlixByIdUser(idUser: number) { 
+    public static async getAlixByIdUser(idUser: number): Promise<Alix> { 
         const alix = await Alix.findOne({
             where: {
                 idUser: { [Op.eq]: idUser },
             }
         });
-        return DaoUtil.ifNotNull(alix);
+        return alix;
     }
 
-    public static async getAlixByAlix(a: string) { 
+    public static async getAlixByAlix(a: string): Promise<Alix> { 
         const alix = await Alix.findOne({
             where: {
                 alix: { [Op.eq]: a },
             }
         });
-        return DaoUtil.ifNotNull(alix);
+        return alix;
     }
 
-    public static async getAlixByAlixAndIdUser(a: string, idUser: number) { 
+    public static async getAlixByAlixAndIdUser(a: string, idUser: number): Promise<Alix> { 
         const alix = await Alix.findOne({
             where: {
                 [Op.and]: [
@@ -35,16 +35,16 @@ export class AlixDao {
                 ]
             }
         });
-        return DaoUtil.ifNotNull(alix);
+        return alix;
     }
 
-    public static async getAkaCandidatesByAlix(a: string) { 
+    public static async getAkaCandidatesByAlix(a: string): Promise<Alix[]> {
         const aka = await Alix.findAll({
             where: {
                 aka: { [Op.substring]: a }
             }
         });
-        return DaoUtil.ifListNotNull(aka);
+        return aka;
     }
 }
 
