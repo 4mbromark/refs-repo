@@ -1,4 +1,3 @@
-import { DaoUtil } from '../refs-utility/refs-util/dao-util';
 import { Op } from "sequelize";
 import { Alix } from '../refs-utility/refs-db/entity/alixlist';
 

@@ -1,3 +1,7 @@
+.userinfo {
+  max-width: 800px;
+}
+
 .board-userinfo {
   height: max-content;
   background-color: white;

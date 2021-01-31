@@ -15,7 +15,6 @@ export class AuthenticationInterceptorService implements HttpInterceptor {
   ) {}
 
   intercept(req: HttpRequest<string>, next: HttpHandler) {
-
     const token: string = this.storageService.get(StorageTag.STORAGE_TOKEN);
 
     req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) });

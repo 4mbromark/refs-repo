@@ -1,5 +1,13 @@
+.board {
+  column-gap: 10px;
+}
+
 .card {
+  width: auto;
+  min-width: 10px;
+  max-width: 400px;
   margin-bottom: 10px;
+  break-inside: avoid;
 }
 
 .card-header {
@@ -36,3 +44,23 @@
   margin-bottom: 50px !important;
 }
 
+@media only screen and (min-width: 1500px) {
+  .board {
+    column-count: 4;
+  }
+}
+@media only screen and (max-width: 1499px) and (min-width: 1100px) {
+  .board {
+    column-count: 3;
+  }
+}
+@media only screen and (max-width: 1099px) and (min-width: 700px) {
+  .board {
+    column-count: 2;
+  }
+}
+@media only screen and (max-width: 699px) and (min-width: 0px) {
+  .board {
+    column-count: 1;
+  }
+}

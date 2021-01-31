@@ -1,5 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 // ANGULAR MATERIAL MODULES
@@ -25,6 +23,10 @@ import { BoardNotfoundComponent } from './refs-board/board-notfound/board-notfou
 import { HomeComponent } from './refs-home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticationInterceptorService } from './refs-utility/refs-auth/authentication-interceptor.service';
+import { LoginComponent } from './refs-login/login.component';
+import { AdminManagerComponent } from './refs-admin/admin-manager.component';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 @NgModule({
   declarations: [
@@ -38,14 +40,16 @@ import { AuthenticationInterceptorService } from './refs-utility/refs-auth/authe
     StandardSnackbarComponent,
     BoardPageComponent,
     BoardNotfoundComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    AdminManagerComponent
   ],
   imports: [
     AngularModules,
     FontAwesomeModule,
 
     BrowserModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationModule,
     HttpClientModule,
     AppRoutingModule
   ],

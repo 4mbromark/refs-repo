@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../config/dbconfig';
-import { User } from './reguser-withdefine';
+import { User } from './reguser';
 
 export class Alix extends Model {
     id: number;

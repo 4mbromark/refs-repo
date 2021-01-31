@@ -6,8 +6,6 @@ import { Env } from './app/refs-utility/refs-env/future-env';
 
 var expressJWT = require('express-jwt');
 
-const port = 3000;
-
 class Reference {
   public app: Application;
 
@@ -43,9 +41,8 @@ class Reference {
   }
 
   private setRouters(): void {
-    //this.rests.push(new UserRest(this.app, new UserService( new UserDao())));
     this.app.use(user, alix);
   }
 }
 
-new Reference().app.listen(port, () => console.log('Server Avviato...'));;
+new Reference().app.listen(Env.PORT, () => console.log('Server Avviato...'));;

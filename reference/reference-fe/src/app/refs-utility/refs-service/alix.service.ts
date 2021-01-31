@@ -1,4 +1,3 @@
-// tslint:disable: no-switch-case-fall-through
 import { RoutingService } from './routing.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';

@@ -1,5 +1,5 @@
 .reference {
-  background-color: var(--refs-main-aliceblue);
+  background-color: var(--refs-hf-color);
   overflow-y: auto;
 }
 .board, .board-big, .board-small {

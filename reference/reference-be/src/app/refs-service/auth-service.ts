@@ -1,5 +1,4 @@
 import { MasterUser } from './../refs-utility/refs-object/MasterUser';
-import { User } from '../refs-utility/refs-db/entity/reguser';
 import { Env } from '../refs-utility/refs-env/future-env';
 
 var jwt = require ('jsonwebtoken');

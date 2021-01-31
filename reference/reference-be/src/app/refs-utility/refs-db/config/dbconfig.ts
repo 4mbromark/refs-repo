@@ -4,7 +4,7 @@ import { Env } from "../../refs-env/future-env";
 
 export const sequelize = new Sequelize(Env.DB_NAME, Env.DB_USERNAME, Env.DB_PASSWORD, {
     host: Env.DB_HOSTURL,
-    dialect: 'mysql', // TODO
+    dialect: Env.DB_DIALECT,
     query: {
         raw: true,
         logging: false,

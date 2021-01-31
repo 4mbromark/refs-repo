@@ -1,3 +1,5 @@
+import { AdminManagerComponent } from './refs-admin/admin-manager.component';
+import { LoginComponent } from './refs-login/login.component';
 import { HomeComponent } from './refs-home/home.component';
 import { RoutingUrl } from './refs-utility/refs-routing/routing-url';
 import { BoardNotfoundComponent } from './refs-board/board-notfound/board-notfound.component';
@@ -7,26 +9,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { BoardPageComponent } from './refs-board/board-page/board-page.component';
 
 const routes: Routes = [
+  { path: RoutingUrl.HOME, component: HomeComponent },
+  { path: RoutingUrl.LOGIN_PAGE, component: LoginComponent },
+  { path: RoutingUrl.ADMIN_MANAGER, component: AdminManagerComponent },
 
-  { path: '', component: HomeComponent },
-  { path: RoutingUrl.LOGIN_PAGE, redirectTo: '', pathMatch: 'full' },
-  { path: '404', component: BoardNotfoundComponent },
+  { path: RoutingUrl.NOTFOUND, component: BoardNotfoundComponent },
+
   { path: ':alix', children: [
-    { path: '', component: BoardComponent },
+    { path: RoutingUrl.BOARD, component: BoardComponent },
     { path: ':page', component: BoardPageComponent },
   ]},
-  { path: '**', component: BoardNotfoundComponent },
 
-  /*{ path: 'clsupproject', redirectTo: '4mbromark', pathMatch: 'full' },
-  { path: 'pholayider', redirectTo: '4mbromark', pathMatch: 'full' },
-  { path: 'char.snap', redirectTo: '4mbromark', pathMatch: 'full' },
-  { path: 'eraclea.in', redirectTo: '4mbromark', pathMatch: 'full' },
-  { path: 'bellowsgraphy', redirectTo: '4mbromark', pathMatch: 'full' },*/
-
+  { path: RoutingUrl.EVERYTHING, component: BoardNotfoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { StandardSnackbarComponent } from '../refs-standard/standard-snackbar/standard-snackbar.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,4 @@ export class SnackbarService {
       duration: duration ? duration : 2000,
     });*/
   }
-
 }
