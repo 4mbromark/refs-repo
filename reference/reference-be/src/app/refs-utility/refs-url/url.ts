@@ -13,4 +13,12 @@ export class Url {
     public static ALIX_GETBYALIX = Url.ALIX + '/getbyalix/:alix';
     public static ALIX_GETBYIDUSER = Url.ALIX + '/getbyiduser/:iduser';
     public static ALIX_GETBYIUA = Url.ALIX + '/getbyiua/:idUser/:alix';
+
+    private static REST_BOARD = Url.BASE_REST + '/board';
+    public static BOARD = Url.REST_BOARD;
+    public static BOARD_GETBYID = Url.REST_BOARD + '/getbyid/:id';
+
+    private static REST_PAGE = Url.BASE_REST + '/page';
+    public static PAGE = Url.REST_PAGE;
+    public static PAGE_GETBYID = Url.REST_PAGE + '/getbyid/:id';
 }

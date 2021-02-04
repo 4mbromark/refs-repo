@@ -1,6 +1,8 @@
 import express, { Application } from 'express';
-import { router as user } from './app/refs-rest/user-rest';
-import { router as alix } from './app/refs-rest/alix-rest';
+import { router as user } from './app/refs-rest/user.rest';
+import { router as alix } from './app/refs-rest/alix.rest';
+import { router as board } from './app/refs-rest/board.rest';
+import { router as page } from './app/refs-rest/page.rest';
 import { Url } from './app/refs-utility/refs-url/url';
 import { Env } from './app/refs-utility/refs-env/future-env';
 
@@ -15,11 +17,13 @@ class Reference {
     this.config();
   }
 
-  private config() {
+  private config(): void {
     this.app.use(Url.REST, expressJWT({ secret: Env.JWT_SECRET, algorithms: ['RS256'] }).unless({
       path: [
         Url.ALIX,
-        Url.USER_AUTH
+        Url.BOARD,
+        Url.PAGE,
+        Url.USER_AUTH,
       ]
     }));
 
@@ -41,7 +45,12 @@ class Reference {
   }
 
   private setRouters(): void {
-    this.app.use(user, alix);
+    this.app.use(
+      user,
+      alix,
+      board,
+      page
+    );
   }
 }
 

@@ -14,7 +14,7 @@ export class User extends Model {
 }
 
 User.init({
-    id: { field: 'ID', type: DataTypes.BIGINT, primaryKey: true },
+    id: { field: 'ID', type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     name: { field: 'NAME', type: DataTypes.STRING, allowNull: false },
     surname: { field: 'SURNAME', type: DataTypes.STRING, allowNull: false },
     username: { field: 'USERNAME', type: DataTypes.STRING, unique: true, allowNull: false },

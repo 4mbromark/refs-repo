@@ -5,8 +5,8 @@ export class MasterUserWithToken extends MasterUser {
     token: string;
     
     constructor(
-        protected user: User,
-        private tk: string
+        user: User,
+        tk: string
     ) {
         super(user);
         this.token = tk;

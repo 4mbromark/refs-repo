@@ -1,7 +1,7 @@
 import { CustomTextline } from './CustomTextline';
-import { Custom } from './Custom';
 
-export class CustomButton extends Custom {
+export class CustomButton {
+  id: number;
   title: CustomTextline;
   subtitle?: CustomTextline;
   // avatar?: string;

@@ -12,20 +12,23 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './refs-board/board.component';
-import { BoardUserinfoComponent } from './refs-board/board-userinfo/board-userinfo.component';
-import { BoardFooterComponent } from './refs-board/board-footer/board-footer.component';
-import { BoardCardlistComponent } from './refs-board/board-cardlist/board-cardlist.component';
+import { BoardUserinfoComponent } from './refs-board/board-customobjects/board-userinfo/board-userinfo.component';
+import { StandardFooterComponent } from './refs-utility/refs-standard/standard-footer/standard-footer.component';
+import { BoardCardComponent } from './refs-board/board-customobjects/board-card/board-card.component';
 import { BoardButtonsComponent } from './refs-board/board-customobjects/board-buttons/board-buttons.component';
 import { BoardInfosComponent } from './refs-board/board-customobjects/board-infos/board-infos.component';
 import { StandardSnackbarComponent } from './refs-utility/refs-standard/standard-snackbar/standard-snackbar.component';
-import { BoardPageComponent } from './refs-board/board-page/board-page.component';
-import { BoardNotfoundComponent } from './refs-board/board-notfound/board-notfound.component';
+import { BoardPageComponent } from './refs-board/board-customobjects/board-page/board-page.component';
+import { BoardNotfoundComponent } from './refs-utility/refs-notfound/notfound.component';
 import { HomeComponent } from './refs-home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticationInterceptorService } from './refs-utility/refs-auth/authentication-interceptor.service';
 import { LoginComponent } from './refs-login/login.component';
 import { AdminManagerComponent } from './refs-admin/admin-manager.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StandardSpinnerComponent } from './refs-utility/refs-standard/standard-spinner/standard-spinner.component';
+
 
 
 @NgModule({
@@ -33,8 +36,8 @@ import { BrowserModule } from '@angular/platform-browser';
     AppComponent,
     BoardComponent,
     BoardUserinfoComponent,
-    BoardFooterComponent,
-    BoardCardlistComponent,
+    StandardFooterComponent,
+    BoardCardComponent,
     BoardButtonsComponent,
     BoardInfosComponent,
     StandardSnackbarComponent,
@@ -42,14 +45,15 @@ import { BrowserModule } from '@angular/platform-browser';
     BoardNotfoundComponent,
     HomeComponent,
     LoginComponent,
-    AdminManagerComponent
+    AdminManagerComponent,
+    StandardSpinnerComponent
   ],
   imports: [
     AngularModules,
     FontAwesomeModule,
 
     BrowserModule,
-    // BrowserAnimationModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule
   ],

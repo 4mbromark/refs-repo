@@ -2,17 +2,3 @@
   background-color: var(--refs-hf-color);
   overflow-y: auto;
 }
-.board, .board-big, .board-small {
-  height: 100%;
-  background-color: var(--refs-hf-color);
-  z-index: 100;
-  overflow-y: auto;
-  position: relative; /* don't remove */
-}
-.board-big {
-  min-width: 500px !important;
-  max-width: 30% !important;
-}
-.board-small {
-  width: 100%;
-}

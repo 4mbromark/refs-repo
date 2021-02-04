@@ -1,9 +1,21 @@
 <div class="refs-h100 refs-spacer-layout">
-  <app-board-userinfo></app-board-userinfo>
+  <div class="refs-h100" *ngIf="!alix || !board">
+    <app-standard-spinner></app-standard-spinner>
+  </div>
 
-  <app-board-cardlist></app-board-cardlist>
+  <div class="refs-h100" *ngIf="alix && board">
+    <app-board-userinfo [alix]="alix.alix" [userinfo]="board.userinfo"></app-board-userinfo>
 
-  <span class="refs-spacer"></span>
+    <div class="refs-flex-center">
+      <div [class]="smartphone ? 'refs-m10 board' : 'refs-m20 board'">
+        <mat-card *ngFor="let card of board.cardList" class="refs-flex-center refs-no-select cardlist">
+          <app-board-card [card]="card"></app-board-card>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 
-  <app-board-footer></app-board-footer>
+  <!--<span class="refs-spacer"></span>-->
+
+  <app-standard-footer></app-standard-footer>
 </div>

@@ -1,0 +1,30 @@
+<div class="refs-100-100 refs-no-select refs-spacer-layout">
+  <mat-card class="refs-m10">
+    <mat-card-header *ngIf="page.title" [class]="page.caption ? 'page-header' : 'page-header-no-caption'">
+      <!--<img mat-card-avatar *ngIf="page.avatar" class="page-avatar" [src]="page.avatar">-->
+      <button mat-icon-button mat-card-avatar (click)="goToBoard();">
+        <fa-icon icon="arrow-left" size="lg"></fa-icon>
+      </button>
+      <mat-card-title class="page-title"><b>{{page.title.text}}</b></mat-card-title>
+      <mat-card-subtitle *ngIf="page.subtitle" class="page-subtitle">{{page.subtitle.text}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <p *ngIf="page.caption" class="page-caption">{{page.caption}}</p>
+
+      <img mat-card-image *ngIf="page.image" [src]="page.image" [style]="page.text ? 'margin-bottom: 0px !important' : ''">
+
+      <p *ngIf="page.text" class="page-text" [innerHTML]="page.text"></p>
+
+      <!--<mat-divider class="card-divider"></mat-divider>-->
+
+      <app-board-infos *ngIf="page.infos" [infos]="page.infos"></app-board-infos>
+      <app-board-buttons *ngIf="page.buttons" [buttons]="page.buttons"></app-board-buttons>
+
+    </mat-card-content>
+  </mat-card>
+
+  <span class="refs-spacer"></span>
+
+  <app-standard-footer></app-standard-footer>
+</div>

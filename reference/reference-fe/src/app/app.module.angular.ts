@@ -8,6 +8,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 @NgModule({
   exports: [
     MatCardModule,
@@ -16,7 +18,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+
+    NgxSpinnerModule
   ]
 })
 export class AngularModules { }

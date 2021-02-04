@@ -8,7 +8,7 @@ export class MasterUser {
     email: string; 
 
     constructor(
-        protected user: User,
+        user: User,
     ) {
         this.id = user.id;
         this.name = user.name;

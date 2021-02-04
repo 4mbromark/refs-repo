@@ -1,6 +1,5 @@
-import { Custom } from './Custom';
-
-export class CustomInfo extends Custom {
+export class CustomInfo {
+  id: number;
   type: 'BIRTHDAY' | 'PLACE' | 'CONTACT';
   info: string[];
 }

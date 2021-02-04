@@ -1,10 +1,10 @@
 import { CustomInfo } from './CustomInfo';
-import { Custom } from './Custom';
 import { CustomButton } from './CustomButton';
 import { CustomTextline } from './CustomTextline';
 
-export class CustomPage extends Custom {
-  page: string;
+export class CustomPage {
+  id: number;
+  code: string;
 
   title?: CustomTextline;
   subtitle?: CustomTextline;
