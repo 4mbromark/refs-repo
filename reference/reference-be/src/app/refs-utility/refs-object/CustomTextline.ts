@@ -12,6 +12,7 @@ export class CustomTextline {
     ) {
         this.id = textline.id;
         this.text = textline.text;
+        this.size = textline.size;
         this.color = textline.color;
         this.weight = textline.weight;
     }

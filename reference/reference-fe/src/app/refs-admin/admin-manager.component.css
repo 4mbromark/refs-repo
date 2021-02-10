@@ -1,0 +1,7 @@
+.workspace-box, .workspace-fullscreen {
+  background-color: white;
+}
+.workspace-box {
+  padding: 2% 3%;
+  border-radius: 4%;
+}

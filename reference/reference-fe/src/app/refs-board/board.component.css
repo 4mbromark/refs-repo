@@ -1,5 +1,7 @@
 .board {
   column-gap: 10px;
+  /*column-fill: auto;
+  column-span: all;*/
 }
 
 .cardlist {
@@ -10,7 +12,7 @@
   break-inside: avoid;
 }
 
-@media only screen and (min-width: 1500px) {
+/*@media only screen and (min-width: 1500px) {
   .board {
     column-count: 4;
   }
@@ -29,4 +31,4 @@
   .board {
     column-count: 1;
   }
-}
+}*/

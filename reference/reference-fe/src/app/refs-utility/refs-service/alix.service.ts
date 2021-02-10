@@ -23,8 +23,9 @@ import { Page } from '../refs-object/Page';
 })
 export class AlixService {
 
-  alix: BehaviorSubject<Alix> = new BehaviorSubject<Alix>(null);
-  page: BehaviorSubject<Page> = new BehaviorSubject<Page>(null);
+  private alix: BehaviorSubject<Alix> = new BehaviorSubject<Alix>(null);
+
+  private pageCode: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   constructor(
     private http: HttpClient,
@@ -35,22 +36,16 @@ export class AlixService {
       this.storageService.set(StorageTag.STORAGE_URL, url);
       const params = url.split('/');
 
-      if (params.length === 0 || params.length === 1) {
-        return;
+      if (params.length > 1) {
+        this.searchAlix(params[1]).then((alix: Alix) => {
+          this.alix.next(alix);
+          if (params.length === 3) {
+            this.pageCode.next(params[2]);
+          }
+        }).catch((error) => {
+          this.routingService.goToNotFound();
+        });
       }
-
-      this.searchAlix(params[1]).then((alix: Alix) => {
-        this.alix.next(alix);
-        if (params.length === 3) {
-          this.searchPage(params[2]).then((page: Page) => {
-            this.page.next(page);
-          }).catch((error) => {
-            this.goToNotFound();
-          });
-        }
-      }).catch((error) => {
-        this.goToNotFound();
-      });
     });
   }
 
@@ -58,8 +53,8 @@ export class AlixService {
     return this.alix.asObservable();
   }
 
-  getPage(): Observable<Page> {
-    return this.page.asObservable();
+  getPageCode(): Observable<string> {
+    return this.pageCode.asObservable();
   }
 
   searchAlix(url: string): Promise<Alix> {
@@ -75,13 +70,7 @@ export class AlixService {
     });
   }
 
-  searchPage(url: string): Promise<Page> {
-    return new Promise((resolve, reject) => {
-      resolve(new Page());
-    });
-  }
-
-  goToNotFound(): void {
-    this.routingService.goToNotFound();
+  getAlixValue(): Alix {
+    return this.alix.value;
   }
 }

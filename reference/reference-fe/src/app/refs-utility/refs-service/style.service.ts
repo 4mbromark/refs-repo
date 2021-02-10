@@ -1,3 +1,4 @@
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CustomTextline } from '../refs-object/custom/CustomTextline';
 import { Injectable } from '@angular/core';
 import { CustomButton } from '../refs-object/custom/CustomButton';
@@ -7,7 +8,21 @@ import { CustomButton } from '../refs-object/custom/CustomButton';
 })
 export class StyleService {
 
+  private smartphone: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor() { }
+
+  isSmartphone(): Observable<boolean> {
+    return this.smartphone.asObservable();
+  }
+
+  checkSmartphone(size: number) {
+    if (this.smartphone.value && size > 500) {
+      this.smartphone.next(false);
+    } else if (!this.smartphone.value && size < 500) {
+      this.smartphone.next(true);
+    }
+  }
 
   getTextStyle(text: CustomTextline): string {
     let style = '';

@@ -10,7 +10,7 @@ import { StorageService } from './storage.service';
 })
 export class RoutingService {
 
-  path: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private path: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(
     private router: Router,
@@ -25,12 +25,20 @@ export class RoutingService {
     });
   }
 
+  goTo(url: string): void {
+    this.router.navigateByUrl(url);
+  }
+
   goToHome(): void {
     this.router.navigate(['']);
   }
+  goToBoard(): void {
+    const alix = this.getAlixFromPath();
+    this.router.navigate([alix]);
+  }
   goToPage(url: string): void {
-    const user = this.getUrl().split('/')[1];
-    this.router.navigate([user, url]);
+    const alix = this.getAlixFromPath();
+    this.router.navigate([alix, url]);
   }
   goToNotFound(): void {
     this.router.navigate(['404'], { skipLocationChange: true });
@@ -48,4 +56,11 @@ export class RoutingService {
     return this.path.asObservable();
   }
 
+  getAlixFromPath(): string {
+    return this.getUrl().split('/')[1];
+  }
+
+  reload(): void {
+    window.location.reload();
+  }
 }

@@ -12,4 +12,8 @@ export class PageService {
     public static async getPageByIdBoardAndId(idBoard: number, id: number): Promise<Page> {
         return await pageDao.getPageByIdBoardAndId(idBoard, id);
     }
+
+    public static async getPageByIdBoardAndCode(idBoard: number, code: string): Promise<Page> {
+        return await pageDao.getPageByIdBoardAndCode(idBoard, code);
+    }
 }

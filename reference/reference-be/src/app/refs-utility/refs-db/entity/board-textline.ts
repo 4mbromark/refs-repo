@@ -17,7 +17,7 @@ Textline.init({
     id: { field: 'ID', type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     idBoard: { field: 'ID_BOARD', type: DataTypes.BIGINT, references: { model: Board, key: 'id' } },
     text: { field: 'TEXT', type: DataTypes.TEXT, defaultValue: null },
-    size: { field: 'TEXT', type: DataTypes.STRING, defaultValue: null },
+    size: { field: 'SIZE', type: DataTypes.STRING, defaultValue: null },
     color: { field: 'COLOR', type: DataTypes.STRING, defaultValue: null },
     weight: { field: 'WEIGHT', type: DataTypes.STRING, defaultValue: null },
     insertDate: { field: 'INSERT_DATE', type: DataTypes.DATE },

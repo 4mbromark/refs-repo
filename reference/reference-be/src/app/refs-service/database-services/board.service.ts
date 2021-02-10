@@ -9,6 +9,10 @@ export class BoardService {
         return await boardDao.getBoardById(id);
     }
 
+    public static async getBoardByIdAlix(idAlix: number): Promise<Board> {
+        return await boardDao.getBoardByIdAlix(idAlix);
+    }
+
     public static async getBoardByIdAlixOrCreate(idAlix: number): Promise<Board> {
         return await boardDao.getBoardByIdAlixOrCreate(idAlix);
     }

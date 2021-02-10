@@ -1,7 +1,7 @@
 import { NotfoundQuote } from '../refs-object/NotfoundQuote';
 
 export class NotfoundQuoteList {
-  public static QUOTE_LIST: NotfoundQuote[] = [
+  private static QUOTE_LIST: NotfoundQuote[] = [
     { text: 'Però ho trovato un biscotto :D', subtext: 'ed era buonissimo ;-;', icon: 'cookie-bite' },
     /*{ text: 'Però ho trovato la tua voglia di vivere.', subtext: 'aspetta, non ricordo più dove l\'ho messa :|', icon: 'heart' },*/
     { text: 'Però ho trovato un kiwi :O', subtext: 'ed è davvero carinissimo!', icon: 'kiwi-bird' },

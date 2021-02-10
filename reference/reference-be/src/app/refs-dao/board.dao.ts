@@ -7,6 +7,15 @@ export class BoardDao {
         return board;
     }
 
+    public static async getBoardByIdAlix(idAlix: number): Promise<Board> { 
+        const board = await Board.findOne({
+            where: {
+                idAlix: { [Op.eq]: idAlix },
+            }
+        });
+        return board;
+    }
+
     public static async getBoardByIdAlixOrCreate(idAlix: number): Promise<Board> { 
         const board = await Board.findOrCreate({
             where: {

@@ -1,3 +1,31 @@
-<div>
+<div class="refs-100-100 refs-column refs-flex-center refs-no-select">
+  <span class="refs-spacer"></span>
 
+    <div [class]="smartphone ? 'refs-100-100 refs-flex-center form-fullscreen' : 'refs-m10 form-box'">
+      <div class="refs-column refs-flex-center">
+        <img class="logo" src="assets/hf-refs-logotemp-reduced.png">
+
+        <span class="title">
+            Accedi a Reference
+        </span>
+
+        <mat-form-field class="field" appearance="standard" floatLabel="never">
+          <input matInput type="text" [(formControl)]="username" placeholder="Account">
+          <mat-hint>Email o username</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="field" appearance="standard" floatLabel="never">
+          <input matInput type="password" [(formControl)]="password" placeholder="Password" (keyup.enter)="login();">
+        </mat-form-field>
+
+        <button mat-raised-button class="button" (click)="login();" [disabled]="!username.value || !password.value">
+          Accedi
+          <fa-icon icon="sign-in-alt" size="lg" style="margin-left: 10px;"></fa-icon>
+        </button>
+      </div>
+
+    </div>
+
+  <span class="refs-spacer"></span>
+
+  <app-standard-footer></app-standard-footer>
 </div>

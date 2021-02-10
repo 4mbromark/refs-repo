@@ -1,6 +1,7 @@
 import { CustomCard } from '../../../refs-utility/refs-object/custom/CustomCard';
  // tslint:disable: max-line-length
 import { Component, Input } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 /*
 
@@ -26,5 +27,8 @@ import { Component, Input } from '@angular/core';
 export class BoardCardComponent {
   @Input() card: CustomCard;
 
-  constructor() { }
+  constructor(
+    public sanitizer: DomSanitizer
+  ) { }
+
 }

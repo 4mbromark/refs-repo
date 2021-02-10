@@ -12,7 +12,7 @@
 }
 
 .card-title, .card-subtitle, .card-caption, .card-text {
-  font-family:  var(--refs-main-ffamily);
+  font-family: var(--refs-main-ffamily);
 }
 .card-title {
   font-size: 25px;

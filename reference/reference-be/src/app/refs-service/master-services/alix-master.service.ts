@@ -16,22 +16,12 @@ export class AlixMasterService {
                 alix = await alixService.getAlixById(aka.idAlix);
             }
         }
+
+        let masterAlix = null;
         if (alix) {
             const akaList = await akaService.getAkaAlixListByIdAlix(alix.id);
-            return new MasterAlix(alix, akaList);
+            masterAlix = new MasterAlix(alix, akaList);
         }
-        return null;
-    }
-
-    public static async getAlixById(id: number): Promise<Alix> {
-        return await alixService.getAlixById(id);
-    }
-
-    public static async getAlixByIdUser(idUser: number): Promise<Alix[]> {
-        return await alixService.getAlixByIdUser(idUser);
-    }
-
-    public static async getAlixByAlixAndIdUser(a: string, idUser: number): Promise<Alix> { 
-        return await alixService.getAlixByAlixAndIdUser(a, idUser);
+        return masterAlix;
     }
 }

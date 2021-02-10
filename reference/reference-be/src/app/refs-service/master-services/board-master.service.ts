@@ -17,8 +17,4 @@ export class BoardMasterService extends GeneralBuilderService {
 
         return new MasterBoard(board, finalUserinfo, finalCardList);
     }
-
-    public static async getBoardById(id: number): Promise<Board> {
-        return await boardService.getBoardById(id);
-    }
 }

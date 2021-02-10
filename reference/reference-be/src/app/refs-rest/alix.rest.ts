@@ -1,3 +1,4 @@
+import { HttpCode } from './../refs-utility/refs-url/http-code';
 import { Url } from '../refs-utility/refs-url/url';
 import express from 'express';
 import { RestUtil } from '../refs-utility/refs-util/rest-util';
@@ -11,11 +12,11 @@ router.post(Url.ALIX, RestUtil.jsonParser, async (req, res) => {
     if (alix) {
         res.send(alix);
     } else {
-        res.sendStatus(404);
+        res.sendStatus(HttpCode.NOT_FOUND);
     }
 });
 
-router.get(Url.ALIX_GETBYID, async (req, res) => {
+/*router.get(Url.ALIX_GETBYID, async (req, res) => {
     const alix = await alixMasterService.getAlixById(parseInt(req.params.id));
     res.send(alix);
 });
@@ -28,4 +29,4 @@ router.get(Url.ALIX_GETBYIDUSER, async (req, res) => {
 router.get(Url.ALIX_GETBYIUA, async (req, res) => {
     const alix = await alixMasterService.getAlixByAlixAndIdUser(req.params.alix, parseInt(req.params.iduser));
     res.send(alix);
-});
+});*/

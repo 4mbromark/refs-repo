@@ -33,6 +33,6 @@ export class CustomCard {
         this.text = card.text;
         this.image = i;
         this.infoList = il;
-        this.buttonList = bl;        
+        this.buttonList = bl;  
     }
 }

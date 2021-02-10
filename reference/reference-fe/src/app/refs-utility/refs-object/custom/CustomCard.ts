@@ -1,3 +1,4 @@
+import { CustomBlob } from './CustomBlob';
 import { CustomInfo } from './CustomInfo';
 import { CustomButton } from './CustomButton';
 import { CustomTextline } from './CustomTextline';
@@ -8,12 +9,12 @@ export class CustomCard {
 
   title?: CustomTextline;
   subtitle?: CustomTextline;
-  avatar?: string;
+  avatar?: CustomBlob;
 
   caption?: string;
   text?: string;
 
-  image?: string;
+  image?: CustomBlob;
   // imagePosition?: 'TOP' | 'BOTTOM';
 
   infoList?: CustomInfo[];

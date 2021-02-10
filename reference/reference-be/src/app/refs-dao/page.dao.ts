@@ -16,6 +16,18 @@ export class PageDao {
                 }
             }
         });
-        return page[0];
+        return page;
+    }
+
+    public static async getPageByIdBoardAndCode(idBoard: number, code: string): Promise<Page> {
+        const page = await Page.findOne({
+            where: {
+                [Op.and]: {
+                    idBoard: { [Op.eq]: idBoard },
+                    code: { [Op.eq]: code }
+                }
+            }
+        });
+        return page;
     }
 }

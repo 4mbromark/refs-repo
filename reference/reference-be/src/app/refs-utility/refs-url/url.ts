@@ -4,6 +4,8 @@ export class Url {
 
     private static REST_USER = Url.BASE_REST + '/user';
     public static USER_AUTH = Url.REST_USER + '/auth';
+    public static USER_VERIFY = Url.REST_USER + '/verify';
+    public static USER_REGISTER = Url.REST_USER + '/register';
     public static USER_GETBYID = Url.REST_USER + '/getbyid/:id';
     public static USER_GETBYEMAIL = Url.REST_USER + '/getbyemail/:email';
 

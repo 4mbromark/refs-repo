@@ -3,6 +3,7 @@ import { router as user } from './app/refs-rest/user.rest';
 import { router as alix } from './app/refs-rest/alix.rest';
 import { router as board } from './app/refs-rest/board.rest';
 import { router as page } from './app/refs-rest/page.rest';
+import { router as blob } from './app/refs-rest/blob.rest';
 import { Url } from './app/refs-utility/refs-url/url';
 import { Env } from './app/refs-utility/refs-env/future-env';
 
@@ -24,6 +25,9 @@ class Reference {
         Url.BOARD,
         Url.PAGE,
         Url.USER_AUTH,
+        Url.USER_VERIFY,
+        Url.USER_REGISTER,
+        '/refs-be/blob'
       ]
     }));
 
@@ -49,7 +53,8 @@ class Reference {
       user,
       alix,
       board,
-      page
+      page,
+      blob
     );
   }
 }

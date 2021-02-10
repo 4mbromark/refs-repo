@@ -1,5 +1,9 @@
-<div class="refs-100-100 refs-no-select refs-spacer-layout">
-  <mat-card class="refs-m10">
+<div class="refs-100-100 refs-flex-center refs-no-select refs-spacer-layout">
+  <div class="refs-h100" *ngIf="!page">
+    <app-standard-spinner></app-standard-spinner>
+  </div>
+
+  <mat-card *ngIf="page" class="refs-m10 page">
     <mat-card-header *ngIf="page.title" [class]="page.caption ? 'page-header' : 'page-header-no-caption'">
       <!--<img mat-card-avatar *ngIf="page.avatar" class="page-avatar" [src]="page.avatar">-->
       <button mat-icon-button mat-card-avatar (click)="goToBoard();">
@@ -15,8 +19,6 @@
       <img mat-card-image *ngIf="page.image" [src]="page.image" [style]="page.text ? 'margin-bottom: 0px !important' : ''">
 
       <p *ngIf="page.text" class="page-text" [innerHTML]="page.text"></p>
-
-      <!--<mat-divider class="card-divider"></mat-divider>-->
 
       <app-board-infos *ngIf="page.infos" [infos]="page.infos"></app-board-infos>
       <app-board-buttons *ngIf="page.buttons" [buttons]="page.buttons"></app-board-buttons>

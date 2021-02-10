@@ -1,3 +1,4 @@
+import { StyleService } from './../refs-utility/refs-service/style.service';
 import { Board } from './../refs-utility/refs-object/Board';
 import { BoardService } from './board.service';
 import { Alix } from './../refs-utility/refs-object/Alix';
@@ -17,22 +18,32 @@ export class BoardComponent implements OnInit {
   board: Board;
 
   smartphone = false;
+  columnCount = 1;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    if (this.smartphone && window.innerWidth > 500) {
-      this.smartphone = false;
-    } else if (!this.smartphone && window.innerWidth < 500) {
-      this.smartphone = true;
+    const size = window.innerWidth;
+    let count;
+    if (size > 1500) {
+      count = 4;
+    } else if (size > 1100) {
+      count = 3;
+    } else if (size > 700) {
+      count = 2;
+    } else {
+      count = 1;
     }
+    if (this.board.cardList.length < count) {
+      count = this.board.cardList.length;
+    }
+    this.columnCount = count;
   }
   constructor(
     private alixService: AlixService,
     private titleService: TitleService,
+    private styleService: StyleService,
     private boardService: BoardService
-  ) {
-    this.onResize();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.alixService.getAlix().pipe(skip(1)).subscribe((alix: Alix) => {
@@ -42,6 +53,9 @@ export class BoardComponent implements OnInit {
         this.board = board;
       });
     });
+    this.styleService.isSmartphone().subscribe((smartphone: boolean) => {
+      this.smartphone = smartphone;
+      this.onResize();
+    });
   }
-
 }

@@ -3,11 +3,11 @@
     <app-standard-spinner></app-standard-spinner>
   </div>
 
-  <div class="refs-h100" *ngIf="alix && board">
+  <div *ngIf="alix && board">
     <app-board-userinfo [alix]="alix.alix" [userinfo]="board.userinfo"></app-board-userinfo>
 
     <div class="refs-flex-center">
-      <div [class]="smartphone ? 'refs-m10 board' : 'refs-m20 board'">
+      <div [class]="smartphone ? 'refs-m10 board' : 'refs-m20 board'" [style.column-count]="columnCount">
         <mat-card *ngFor="let card of board.cardList" class="refs-flex-center refs-no-select cardlist">
           <app-board-card [card]="card"></app-board-card>
         </mat-card>
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <!--<span class="refs-spacer"></span>-->
+  <span class="refs-spacer"></span>
 
   <app-standard-footer></app-standard-footer>
 </div>

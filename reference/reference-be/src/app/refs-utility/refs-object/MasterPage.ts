@@ -30,6 +30,8 @@ export class MasterPage {
         this.title = t;
         this.subtitle = st;
         this.avatar = a;
+        this.caption = page.caption;
+        this.text = page.text;
         this.image = i;
         this.infoList = il;
         this.buttonList = bl;

@@ -1,3 +1,4 @@
+import { StyleService } from './../refs-utility/refs-service/style.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminManagerComponent implements OnInit {
 
-  constructor() { }
+  smartphone = false;
+
+  constructor(
+    private styleService: StyleService
+  ) { }
 
   ngOnInit(): void {
+    this.styleService.isSmartphone().subscribe((smartphone: boolean) => {
+      this.smartphone = smartphone;
+    });
   }
 
 }

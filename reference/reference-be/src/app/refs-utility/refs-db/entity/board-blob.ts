@@ -6,7 +6,7 @@ export class Blob extends Model {
     id: number;
     idBoard: number;
     type: string;
-    file: File;
+    file: string;
     insertDate: Date;
     updateDate: Date;
 }

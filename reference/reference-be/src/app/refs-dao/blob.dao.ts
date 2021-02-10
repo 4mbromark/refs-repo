@@ -18,4 +18,13 @@ export class BlobDao {
         });
         return blob;
     }
+
+    public static async insertBlobByIdBoardAndReturnId(idBoard: number, file, type: string): Promise<number> {
+        const blob = await Blob.create({
+            idBoard: idBoard,
+            file: file,
+            type: type
+        });
+        return blob.id;
+    }
 }

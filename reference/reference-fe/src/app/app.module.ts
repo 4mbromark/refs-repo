@@ -18,7 +18,7 @@ import { BoardCardComponent } from './refs-board/board-customobjects/board-card/
 import { BoardButtonsComponent } from './refs-board/board-customobjects/board-buttons/board-buttons.component';
 import { BoardInfosComponent } from './refs-board/board-customobjects/board-infos/board-infos.component';
 import { StandardSnackbarComponent } from './refs-utility/refs-standard/standard-snackbar/standard-snackbar.component';
-import { BoardPageComponent } from './refs-board/board-customobjects/board-page/board-page.component';
+import { BoardPageComponent } from './refs-board/board-page/board-page.component';
 import { BoardNotfoundComponent } from './refs-utility/refs-notfound/notfound.component';
 import { HomeComponent } from './refs-home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';

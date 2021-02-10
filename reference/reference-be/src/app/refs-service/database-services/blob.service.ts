@@ -12,4 +12,8 @@ export class BlobService {
     public static async getBlobByIdBoardAndId(idBoard: number, id: number): Promise<Blob> {
         return await blobDao.getBlobByIdBoardAndId(idBoard, id);
     }
+
+    public static async insertBlobByIdBoardAndReturnId(idBoard: number, file, type: string): Promise<number> {
+        return await blobDao.insertBlobByIdBoardAndReturnId(idBoard, file, type)
+    }
 }
