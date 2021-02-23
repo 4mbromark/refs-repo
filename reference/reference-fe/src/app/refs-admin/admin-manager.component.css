@@ -5,3 +5,12 @@
   padding: 2% 3%;
   border-radius: 4%;
 }
+
+.title {
+  font-size: larger;
+  font-weight: 700;
+  font-family: var(--refs-main-ffamily);
+  color: var(--refs-base-color);
+  margin-right: 20px;
+  margin-bottom: 20px;
+}

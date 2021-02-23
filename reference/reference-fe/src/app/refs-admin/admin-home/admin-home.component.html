@@ -1,0 +1,17 @@
+<div class="refs-column">
+  <div class="refs-w100 refs-flex-center user">
+    <span class="refs-column refs-flex-center username">
+      <img class="propic" *ngIf="!userPropic" src="assets/default-propic.png">
+      <img mat-card-avatar class="propic" *ngIf="userPropic" [src]="'data:image/png;base64,' + userPropic">
+      <span>{{user.name + ' ' + user.surname}}</span>
+    </span>
+  </div>
+  <button mat-button class="admin-button" *ngFor="let button of buttons" (click)="getButtonAction(button)">
+    <div class="refs-row refs-w100">
+      <span style="width: 60px;">
+        <fa-icon [icon]="button.icon" size="lg" style="margin-right: 20px;"></fa-icon>
+      </span>
+      <span>{{gbl(button.title)}}</span>
+    </div>
+  </button>
+</div>

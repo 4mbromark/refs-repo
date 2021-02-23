@@ -1,3 +1,4 @@
+import { RoutingUrl } from './../refs-routing/routing-url';
 import { StorageTag } from './../refs-enum/storage-tag';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -19,7 +20,8 @@ export class RoutingService {
     private storageService: StorageService
   ) {
     this.router.events.subscribe(r => {
-      if (location.path() !== this.storageService.get(StorageTag.STORAGE_URL)) {
+      const path = this.location.path();
+      if (path !== this.storageService.get(StorageTag.STORAGE_URL)) {
         this.path.next(this.location.path());
       }
     });
@@ -30,7 +32,7 @@ export class RoutingService {
   }
 
   goToHome(): void {
-    this.router.navigate(['']);
+    this.router.navigate([RoutingUrl.HOME]);
   }
   goToBoard(): void {
     const alix = this.getAlixFromPath();
@@ -41,7 +43,7 @@ export class RoutingService {
     this.router.navigate([alix, url]);
   }
   goToNotFound(): void {
-    this.router.navigate(['404'], { skipLocationChange: true });
+    this.router.navigate([RoutingUrl.NOTFOUND], { skipLocationChange: true });
     this.location.replaceState(this.storageService.get(StorageTag.STORAGE_URL));
   }
 

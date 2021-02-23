@@ -11,7 +11,6 @@ export class CryptService {
 
     public static decrypt(ax: string): string {
         const a = CryptoJS.AES.decrypt(ax, Env.CRYPT_KEY);
-        return a.toString;
+        return a.toString();
     }
-
 }

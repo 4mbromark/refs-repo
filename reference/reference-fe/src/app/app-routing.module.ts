@@ -12,7 +12,7 @@ import { LoginGuardService as LoginGuard } from './refs-utility/refs-auth/guard/
 import { AuthenticationGuardService as AuthGuard } from './refs-utility/refs-auth/guard/auth-guard.service';
 
 const routes: Routes = [
-  { path: RoutingUrl.HOME, component: HomeComponent },
+  { path: RoutingUrl.HOME, redirectTo: RoutingUrl.LOGIN_PAGE, pathMatch: 'full' },
   { path: RoutingUrl.LOGIN_PAGE, component: LoginComponent, canActivate: [LoginGuard] },
   { path: RoutingUrl.ADMIN_MANAGER, component: AdminManagerComponent, canActivate: [AuthGuard] },
 

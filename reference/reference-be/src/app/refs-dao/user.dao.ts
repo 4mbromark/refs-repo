@@ -2,6 +2,21 @@ import { Op } from "sequelize";
 import { User } from "../refs-utility/refs-db/entity/reguser";
 
 export class UserDao {
+
+    public static async getUserById(id: number): Promise<User> { 
+        const user = await User.findByPk(id);
+        return user;
+    }
+
+    public static async getUserByEmail(email: string): Promise<User> { 
+        const user = await User.findOne({
+            where: {
+                email: email,
+            }
+        });
+        return user;
+    }
+    
     public static async getUserByUserAndPassword(uid: string, pwd: string): Promise<User> { 
         const user = await User.findOne({
             where: {
@@ -24,18 +39,14 @@ export class UserDao {
         return user;
     }
 
-    public static async getUserById(id: number): Promise<User> { 
-        const user = await User.findByPk(id);
-        return user;
-    }
-
-    public static async getUserByEmail(email: string): Promise<User> { 
-        const user = await User.findOne({
+    public static do(a) {
+        const extra = User.update({
+            password: a
+        }, {
             where: {
-                email: email,
+                id: { [Op.eq]: 1 },
             }
         });
-        return user;
     }
 }
 

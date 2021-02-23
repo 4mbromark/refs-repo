@@ -1,3 +1,4 @@
+import { Name } from '../../refs-enum/word/name';
 import { RoutingService } from '../../refs-service/routing.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./standard-footer.component.css']
 })
 export class StandardFooterComponent implements OnInit {
+
+  names = Name;
 
   constructor(
     private routingService: RoutingService

@@ -5,6 +5,7 @@ export class Env {
 
     public static JWT_SECRET: string = 'A1issc3Dr4wR3f3r3nc3';
     public static JWT_EXPIRATION: string = '2h';
+    public static JWT_ALGORITHMS: string[] = ['HS256'];
 
     public static CRYPT_KEY: string = 'B3stOOr@ng3';
 

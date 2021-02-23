@@ -8,4 +8,10 @@ export class RoutingUrl {
 
   public static NOTFOUND = '404';
   public static EVERYTHING = '**';
+
+  public static ALIX_PROTECTED_URL = [
+    RoutingUrl.HOME,
+    RoutingUrl.LOGIN_PAGE,
+    RoutingUrl.ADMIN_MANAGER,
+  ];
 }

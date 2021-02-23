@@ -3,7 +3,7 @@
     <app-standard-spinner></app-standard-spinner>
   </div>
 
-  <div *ngIf="alix && board">
+  <div *ngIf="alix && board"> <!-- style="overflow-y: auto;" -->
     <app-board-userinfo [alix]="alix.alix" [userinfo]="board.userinfo"></app-board-userinfo>
 
     <div class="refs-flex-center">

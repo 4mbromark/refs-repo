@@ -1,0 +1,6 @@
+<div class="refs-column">
+  <button mat-button class="admin-button" *ngFor="let button of buttons" (click)="setLanguage(button.tag)"
+    [style]="language === button.tag ? 'background-color: lightgray;' : ''">
+    <span class="refs-w100">{{gbl(button.title)}}</span>
+  </button>
+</div>

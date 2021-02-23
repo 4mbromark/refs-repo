@@ -2,6 +2,7 @@ import { Op } from "sequelize";
 import { Page } from '../refs-utility/refs-db/entity/board-page';
 
 export class PageDao {
+    
     public static async getPageById(id: number): Promise<Page> { 
         const page = await Page.findByPk(id);
         return page;

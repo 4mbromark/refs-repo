@@ -8,6 +8,7 @@ body {
   --refs-hf-color: rgb(0, 9, 111);
   --refs-main-aliceblue: aliceblue;
   --refs-main-ffamily: Segoe UI, Arial;
+  --refs-base-color: midnightblue;
 }
 
 @font-face {
@@ -81,6 +82,14 @@ body {
 .refs-spacer-layout {
   display: flex;
   flex-flow: column;
+}
+
+.admin-button {
+  color: var(--refs-base-color);
+  font-size: large;
+  font-weight: 600;
+  padding: 2px 15px !important;
+  margin: 1px !important;
 }
 
 /* OVERRIDE ANGULAR */

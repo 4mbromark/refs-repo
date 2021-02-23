@@ -51,11 +51,11 @@ export class BoardComponent implements OnInit {
       this.titleService.setTitleWithAlix(alix.alix);
       this.boardService.loadBoard(alix.id).then((board: Board) => {
         this.board = board;
+        this.onResize();
       });
     });
     this.styleService.isSmartphone().subscribe((smartphone: boolean) => {
       this.smartphone = smartphone;
-      this.onResize();
     });
   }
 }

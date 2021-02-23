@@ -1,6 +1,5 @@
 import { MasterAlix } from './../../refs-utility/refs-object/MasterAlix';
 import { AkaService } from '../database-services/aka.service';
-import { Alix } from '../../refs-utility/refs-db/entity/alixlist';
 import { AlixService } from '../database-services/alix.service';
 
 var alixService = AlixService;

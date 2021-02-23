@@ -1,3 +1,4 @@
+import { User } from './../refs-object/User';
 import { StorageTag } from './../refs-enum/storage-tag';
 import { StorageService } from './../refs-service/storage.service';
 import { Injectable } from '@angular/core';
@@ -14,15 +15,16 @@ export class AuthenticationService {
     private storageService: StorageService
   ) { }
 
-  isAuthenticated(): Promise<void> {
+  isAuthenticated(): Promise<User> {
     const token = this.storageService.get(StorageTag.STORAGE_TOKEN);
     return new Promise((resolve, reject) => {
       if (!token) {
         reject();
+        return;
       }
       this.http.post(RestUrl.USER_VERIFY, { token: token }, { responseType: 'json' }).subscribe(
-        () => {
-          resolve();
+        (user: User) => {
+          resolve(user);
         },
         (error) => {
           this.invalidate();

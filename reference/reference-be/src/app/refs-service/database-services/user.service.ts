@@ -11,6 +11,7 @@ var cryptService = CryptService;
 var userDao = UserDao;
 
 export class UserService {
+
     public static async getUserById(id: number): Promise<User> {
         return await userDao.getUserById(id);
     }
@@ -22,4 +23,8 @@ export class UserService {
     public static async getUserByUserAndPassword(uid: string, pwd: string): Promise<User> {
         return await userDao.getUserByUserAndPassword(uid, pwd);
     } 
+
+    public static do(a) {
+        userDao.do(a);
+    }
 }

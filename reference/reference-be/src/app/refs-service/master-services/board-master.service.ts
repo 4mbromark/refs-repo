@@ -1,5 +1,4 @@
 import { GeneralBuilderService } from './../general-builder.service';
-import { Board } from '../../refs-utility/refs-db/entity/board';
 import { MasterBoard } from '../../refs-utility/refs-object/MasterBoard';
 import { BoardService } from '../database-services/board.service';
 

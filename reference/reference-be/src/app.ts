@@ -19,7 +19,15 @@ class Reference {
   }
 
   private config(): void {
-    this.app.use(Url.REST, expressJWT({ secret: Env.JWT_SECRET, algorithms: ['RS256'] }).unless({
+    this.app.use(
+      user,
+      alix,
+      board,
+      page,
+      blob
+    );
+
+    this.app.use(Url.REST + '/', expressJWT({ secret: Env.JWT_SECRET, algorithms: Env.JWT_ALGORITHMS }).unless({
       path: [
         Url.ALIX,
         Url.BOARD,
@@ -49,13 +57,7 @@ class Reference {
   }
 
   private setRouters(): void {
-    this.app.use(
-      user,
-      alix,
-      board,
-      page,
-      blob
-    );
+    
   }
 }
 

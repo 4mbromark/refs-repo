@@ -1,5 +1,7 @@
 .page {
   width: auto;
+  height: auto;
+  overflow-y: auto;
   min-width: 10px;
   max-width: 600px;
 }

@@ -16,12 +16,21 @@ router.post(Url.USER_AUTH, RestUtil.jsonParser, async (req, res) => {
     }
 });
 
-router.post(Url.USER_VERIFY, RestUtil.jsonParser, async (req, res) => {
-    const user = await userMasterService.verifyUser(req.body.token);
+router.post(Url.USER_VERIFY, RestUtil.jsonParser, (req, res) => {
+    const user = userMasterService.verifyUser(req.body.token);
     if (user) {
         res.send(user);
     } else {
         res.sendStatus(HttpCode.UNAUTHORIZED);
+    }
+});
+
+router.get(Url.USER_GETPROPIC, async (req, res) => {
+    const propic = await userMasterService.getUserPropic(parseInt(req.params.idUser));
+    if (propic) {
+        res.send(propic);
+    } else {
+        res.sendStatus(HttpCode.NOT_FOUND);
     }
 });
 

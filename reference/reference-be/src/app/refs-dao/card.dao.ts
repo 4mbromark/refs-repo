@@ -2,6 +2,7 @@ import { Op } from "sequelize";
 import { Card } from "../refs-utility/refs-db/entity/board-card";
 
 export class CardDao {
+    
     public static async getCardById(id: number): Promise<Card> { 
         const card = await Card.findByPk(id);
         return card;

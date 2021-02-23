@@ -1,11 +1,31 @@
 <div class="refs-100-100 refs-column refs-flex-center refs-no-select">
   <span class="refs-spacer"></span>
 
-    <div [class]="smartphone ? 'refs-100-100 refs-flex-center workspace-fullscreen' : 'refs-m10 workspace-box'">
-      <div class="refs-column refs-flex-center">
+  <div [class]="smartphone ? 'refs-100-100 refs-column refs-flex-center workspace-fullscreen' : 'refs-m10 workspace-box'">
+    <div>
 
+      <div *ngIf="section !== tags.ADMIN_HOME" class="refs-w100 refs-column refs-flex-center title">
+        <fa-icon [icon]="sectionIcon" size="2x" style="margin-bottom: 10px;"></fa-icon>
+        <div class="refs-flex-center title">
+          <button mat-icon-button style="margin-right: 10px;" (click)="returnToHome();">
+            <fa-icon icon="arrow-left" size="lg"></fa-icon>
+          </button>
+          {{sectionTitle}}
+        </div>
       </div>
+
+      <div [ngSwitch]="section">
+        <section *ngSwitchCase="tags.ADMIN_HOME">
+          <app-admin-home></app-admin-home>
+        </section>
+
+        <section *ngSwitchCase="tags.ADMIN_HOME_LANGUAGE">
+          <app-admin-language></app-admin-language>
+        </section>
+      </div>
+
     </div>
+  </div>
 
   <span class="refs-spacer"></span>
 

@@ -2,6 +2,7 @@ import { Op } from "sequelize";
 import { Aka } from "../refs-utility/refs-db/entity/alixlist-aka";
 
 export class AkaDao {
+    
     public static async getAkaById(id: number): Promise<Aka> { 
         const aka = await Aka.findByPk(id);
         return aka;

@@ -2,6 +2,7 @@ import { Op } from "sequelize";
 import { Info } from "../refs-utility/refs-db/entity/board-info";
 
 export class InfoDao {
+    
     public static async getInfoById(id: number): Promise<Info> { 
         const info = await Info.findByPk(id);
         return info;

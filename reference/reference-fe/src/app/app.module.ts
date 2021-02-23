@@ -28,6 +28,8 @@ import { AdminManagerComponent } from './refs-admin/admin-manager.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StandardSpinnerComponent } from './refs-utility/refs-standard/standard-spinner/standard-spinner.component';
+import { AdminHomeComponent } from './refs-admin/admin-home/admin-home.component';
+import { AdminLanguageComponent } from './refs-admin/admin-language/admin-language.component';
 
 
 
@@ -46,7 +48,9 @@ import { StandardSpinnerComponent } from './refs-utility/refs-standard/standard-
     HomeComponent,
     LoginComponent,
     AdminManagerComponent,
-    StandardSpinnerComponent
+    StandardSpinnerComponent,
+    AdminHomeComponent,
+    AdminLanguageComponent
   ],
   imports: [
     AngularModules,

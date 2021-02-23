@@ -1,3 +1,4 @@
+import { RoutingUrl } from './../refs-routing/routing-url';
 import { RoutingService } from './routing.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -34,7 +35,11 @@ export class AlixService {
   ) {
     this.routingService.getPath().subscribe((url: string) => {
       this.storageService.set(StorageTag.STORAGE_URL, url);
+
       const params = url.split('/');
+      if (RoutingUrl.ALIX_PROTECTED_URL.includes(params[1])) {
+        return;
+      }
 
       if (params.length > 1) {
         this.searchAlix(params[1]).then((alix: Alix) => {

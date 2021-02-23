@@ -5,5 +5,7 @@ export class User {
   username: string;
   email: string;
 
+  propic: string;
+
   token?: string;
 }
