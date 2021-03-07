@@ -7,6 +7,7 @@ import { LanguageService } from './../../refs-utility/refs-service/language.serv
 import { ButtonList } from './../../refs-utility/refs-enum/button-list';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/refs-utility/refs-object/User';
+import { LanguageLabel } from 'src/app/refs-utility/refs-language/language-label';
 
 @Component({
   selector: 'app-admin-home',
@@ -35,7 +36,7 @@ export class AdminHomeComponent implements OnInit {
     });
   }
 
-  gbl(label: string): string {
+  gbl(label: LanguageLabel): string {
     return this.languageService.getByLanguage(label);
   }
 
@@ -51,7 +52,7 @@ export class AdminHomeComponent implements OnInit {
     }
   }
 
-  goToAdminSection(section: string): void {
+  goToAdminSection(section: Tag): void {
     this.adminManagerService.setSection(section);
   }
 

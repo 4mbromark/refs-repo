@@ -2,6 +2,7 @@ import { LanguageTag } from './../refs-language/language-tag';
 import { Tag } from './word/tag';
 import { LanguageLabel } from './../refs-language/language-label';
 import { AdminButton } from './../refs-object/AdminButton';
+import { LanguageButton } from '../refs-object/LanguageButton';
 
 export class ButtonList {
   public static ADMIN_HOME_BUTTONS: AdminButton[] = [
@@ -14,13 +15,13 @@ export class ButtonList {
     { icon: 'sign-out-alt', title: LanguageLabel.ADMIN_HOME_LOGOUT, tag: Tag.ADMIN_HOME_LOGOUT },
   ];
 
-  public static getAdminHomeButtonByTag(tag: string) {
+  public static ADMIN_HOME_LANGUAGE_BUTTONS: LanguageButton[] = [
+    { title: LanguageLabel.LANGUAGE_ITALIAN, languageTag: LanguageTag.ITALIAN },
+    { title: LanguageLabel.LANGUAGE_ENGLISH, languageTag: LanguageTag.ENGLISH }
+  ];
+
+  public static getAdminHomeButtonByTag(tag: Tag) {
     const button = ButtonList.ADMIN_HOME_BUTTONS.find(i => i.tag === tag);
     return button;
   }
-
-  public static ADMIN_HOME_LANGUAGE_BUTTONS: AdminButton[] = [
-    { title: LanguageLabel.LANGUAGE_ITALIAN, tag: LanguageTag.ITALIAN },
-    { title: LanguageLabel.LANGUAGE_ENGLISH, tag: LanguageTag.ENGLISH }
-  ];
 }

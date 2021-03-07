@@ -1,5 +1,5 @@
-export class InfoTag {
-  public static TYPE_BIRTHDAY = 'BIRTHDAY';
-  public static TYPE_PLACE = 'PLACE';
-  public static TYPE_CONTACT = 'CONTACT';
+export enum InfoTag {
+  TYPE_BIRTHDAY = 'BIRTHDAY',
+  TYPE_PLACE = 'PLACE',
+  TYPE_CONTACT = 'CONTACT'
 }

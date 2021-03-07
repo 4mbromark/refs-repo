@@ -1,6 +1,6 @@
-import { Name } from '../refs-enum/word/name';
 import { LanguageLabel } from './language-label';
 import { LanguageMatch } from './../refs-object/LanguageMatch';
+
 export class LanguageMatchList {
   public static MATCHS: LanguageMatch[] = [
     { label: LanguageLabel.ADMIN_HOME_PROFILE, italian: 'Profilo utente', english: 'User profile' },

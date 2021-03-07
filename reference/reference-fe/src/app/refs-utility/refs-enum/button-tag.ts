@@ -1,4 +1,4 @@
-export class ButtonTag {
-  public static TYPE_LINK = 'LINK';
-  public static TYPE_PAGE = 'PAGE';
+export enum ButtonTag {
+  TYPE_LINK = 'LINK',
+  TYPE_PAGE = 'PAGE'
 }

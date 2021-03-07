@@ -5,6 +5,7 @@ import { StyleService } from './../refs-utility/refs-service/style.service';
 import { Component, OnInit } from '@angular/core';
 import { Tag } from '../refs-utility/refs-enum/word/tag';
 import { Button } from 'protractor';
+import { LanguageLabel } from '../refs-utility/refs-language/language-label';
 
 @Component({
   selector: 'app-admin-manager',
@@ -15,7 +16,7 @@ export class AdminManagerComponent implements OnInit {
 
   tags = Tag;
 
-  section: string;
+  section: Tag;
 
   sectionIcon: string;
   sectionTitle: string;
@@ -29,7 +30,7 @@ export class AdminManagerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.adminManagerService.getSection().subscribe((section: string) => {
+    this.adminManagerService.getSection().subscribe((section: Tag) => {
       this.section = section;
       if (section !== Tag.ADMIN_HOME) {
         this.setSectionTitleAndIcon();
@@ -40,7 +41,7 @@ export class AdminManagerComponent implements OnInit {
     });
   }
 
-  gbl(label: string): string {
+  gbl(label: LanguageLabel): string {
     return this.languageService.getByLanguage(label);
   }
 

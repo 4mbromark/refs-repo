@@ -1,4 +1,4 @@
-export class LanguageTag {
-  public static ITALIAN = 'ita';
-  public static ENGLISH = 'eng';
+export enum LanguageTag {
+  ITALIAN = 'ita',
+  ENGLISH = 'eng'
 }

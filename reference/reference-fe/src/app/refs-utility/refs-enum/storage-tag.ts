@@ -1,10 +1,11 @@
-export class StorageTag {
+export enum StorageTag {
   // public static STORAGE_ALIX = RoutingParam.ALIX;
   // public static STORAGE_PAGE = RoutingParam.PAGE;
 
-  private static STORAGE_PREFIX = 'hf-reference-';
+  STORAGE_PREFIX = 'hf-reference-',
 
-  public static STORAGE_URL = StorageTag.STORAGE_PREFIX + 'url';
-  public static STORAGE_TOKEN = StorageTag.STORAGE_PREFIX + 'token';
-  public static STORAGE_LANGUAGE = StorageTag.STORAGE_PREFIX + 'language';
+  STORAGE_URL = 'hf-reference-url',
+  STORAGE_TOKEN = 'hf-reference-token',
+  STORAGE_LANGUAGE = 'hf-reference-language'
 }
+

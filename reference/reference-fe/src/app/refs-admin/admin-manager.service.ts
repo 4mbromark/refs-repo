@@ -7,15 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class AdminManagerService {
 
-  section: BehaviorSubject<string> = new BehaviorSubject<string>(Tag.ADMIN_HOME);
+  section: BehaviorSubject<Tag> = new BehaviorSubject<Tag>(Tag.ADMIN_HOME);
 
   constructor() { }
 
-  getSection(): Observable<string> {
+  getSection(): Observable<Tag> {
     return this.section.asObservable();
   }
 
-  setSection(section: string): void {
+  setSection(section: Tag): void {
     this.section.next(section);
   }
 }
