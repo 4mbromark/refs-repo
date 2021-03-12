@@ -29,6 +29,11 @@
   color: white;
   font-size: 18px;
   border-radius: 0px !important;
-  background-color: var(--refs-hf-color);
+  background-color: var(--refs-base-color);
   margin: 10%;
+}
+
+.error {
+  margin: -10px;
+  font-family: var(--refs-main-ffamily)
 }

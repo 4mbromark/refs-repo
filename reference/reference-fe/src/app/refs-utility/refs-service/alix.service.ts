@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { StorageService } from './storage.service';
 import { StorageTag } from '../refs-enum/storage-tag';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Alix } from '../refs-object/Alix';
 import { RestUrl } from '../refs-rest/rest-url';
 import { Page } from '../refs-object/Page';
@@ -47,7 +47,7 @@ export class AlixService {
           if (params.length === 3) {
             this.pageCode.next(params[2]);
           }
-        }).catch((error) => {
+        }).catch((error: HttpErrorResponse) => {
           this.routingService.goToNotFound();
         });
       }
@@ -68,7 +68,7 @@ export class AlixService {
         (alix: Alix) => {
           resolve(alix);
         },
-        (error) => {
+        (error: HttpErrorResponse) => {
           reject(error);
         }
       );
@@ -77,5 +77,18 @@ export class AlixService {
 
   getAlixValue(): Alix {
     return this.alix.value;
+  }
+
+  getAlixList(idUser: number): Promise<Alix[]> {
+    return new Promise((resolve, reject) => {
+      this.http.get(RestUrl.ALIX_LIST + idUser, { responseType: 'json' }).subscribe(
+        (alixList: Alix[]) => {
+          resolve(alixList);
+        },
+        (error: HttpErrorResponse) => {
+          reject(error);
+        }
+      );
+    });
   }
 }

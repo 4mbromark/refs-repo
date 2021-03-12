@@ -11,7 +11,7 @@ export class AlixDao {
     public async getAlixByIdUser(idUser: number): Promise<Alix[]> { 
         const alix = await Alix.findAll({
             where: {
-                idUser: { [Op.eq]: idUser },
+                idUser: { [Op.eq]: idUser }
             }
         });
         return alix;
@@ -20,7 +20,7 @@ export class AlixDao {
     public async getAlixByAlix(a: string): Promise<Alix> { 
         const alix = await Alix.findOne({
             where: {
-                alix: { [Op.eq]: a },
+                alix: { [Op.eq]: a }
             }
         });
         return alix;

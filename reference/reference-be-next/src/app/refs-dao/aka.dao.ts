@@ -11,7 +11,7 @@ export class AkaDao {
     public async getAkaByIdAlix(idAlix: number): Promise<Aka[]> { 
         const aka = await Aka.findAll({
             where: {
-                idAlix: { [Op.eq]: idAlix },
+                idAlix: { [Op.eq]: idAlix }
             }
         });
         return aka;
@@ -20,7 +20,7 @@ export class AkaDao {
     public async getAkaByAlix(alix: string): Promise<Aka> { 
         const aka = await Aka.findOne({
             where: {
-                aka: { [Op.eq]: alix },
+                aka: { [Op.eq]: alix }
             }
         });
         return aka;

@@ -30,6 +30,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StandardSpinnerComponent } from './refs-utility/refs-standard/standard-spinner/standard-spinner.component';
 import { AdminHomeComponent } from './refs-admin/admin-home/admin-home.component';
 import { AdminLanguageComponent } from './refs-admin/admin-language/admin-language.component';
+import { AdminProfileComponent } from './refs-admin/admin-profile/admin-profile.component';
+import { StandardUploaderComponent } from './refs-utility/refs-standard/standard-uploader/standard-uploader.component';
+import { AdminAlixComponent } from './refs-admin/admin-alix/admin-alix.component';
 
 
 
@@ -50,7 +53,10 @@ import { AdminLanguageComponent } from './refs-admin/admin-language/admin-langua
     AdminManagerComponent,
     StandardSpinnerComponent,
     AdminHomeComponent,
-    AdminLanguageComponent
+    AdminLanguageComponent,
+    AdminProfileComponent,
+    StandardUploaderComponent,
+    AdminAlixComponent
   ],
   imports: [
     AngularModules,
@@ -59,7 +65,7 @@ import { AdminLanguageComponent } from './refs-admin/admin-language/admin-langua
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true }

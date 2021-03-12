@@ -8,7 +8,7 @@ export const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERN
     dialect: 'mysql',
     query: {
         raw: true,
-        logging: false,
+        // logging: false,
         type: QueryTypes.SELECT
     }
 });

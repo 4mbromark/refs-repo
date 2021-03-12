@@ -1,0 +1,19 @@
+.uploader {
+  border: solid 2px var(--refs-base-color);
+  border-radius: 10px;
+  min-height: 120px;
+  margin: 2px;
+}
+
+.uploader-text, .uploader-format, .uploader-icon {
+  color: var(--refs-base-color);
+}
+.uploader-text {
+  font-size: 18px;
+  margin-top: -10px;
+  margin-bottom: -15px;
+}
+.uploader-format {
+  font-size: 15px;
+  margin-bottom: -10px;
+}

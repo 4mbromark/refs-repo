@@ -1,3 +1,4 @@
+import { NotFoundException } from '@nestjs/common';
 import { AlixMasterService } from './alix-master.service';
 import { MasterAlix } from './../../refs-utility/refs-object/MasterAlix';
 import { BlobService } from './../database-services/blob.service';
@@ -25,11 +26,11 @@ export class PageMasterService {
     public async getPage(idAlix: number, code: string): Promise<MasterPage> {
         const board = await this.boardService.getBoardByIdAlix(idAlix);
         let page = null
+        
         if (board) {
             page = await this.pageService.getPageByIdBoardAndCode(board.id, code);
         }
 
-        let masterPage = null;
         if (page) {
             const idBoard = page.idBoard;
 
@@ -42,7 +43,7 @@ export class PageMasterService {
             const finalInfoList = await this.builder.getFinalInfoList(idBoard, ServiceUtil.getNumberArrayByString(page.infoList));
             const finalButtonList = await this.builder.getFinalButtonList(idBoard, ServiceUtil.getNumberArrayByString(page.buttonList));
     
-            masterPage = new MasterPage(
+            return new MasterPage(
                 page,
                 title ? new CustomTextline(title) : null,
                 subtitle ? new CustomTextline(subtitle) : null,
@@ -52,6 +53,6 @@ export class PageMasterService {
                 finalButtonList
             );
         }
-        return masterPage;        
+        throw new NotFoundException();       
     }
 }

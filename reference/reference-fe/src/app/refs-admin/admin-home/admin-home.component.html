@@ -1,9 +1,10 @@
 <div class="refs-column">
   <div class="refs-w100 refs-flex-center user">
-    <span class="refs-column refs-flex-center username">
+    <span class="refs-column refs-flex-center">
       <img class="propic" *ngIf="!userPropic" src="assets/default-propic.png">
       <img mat-card-avatar class="propic" *ngIf="userPropic" [src]="'data:image/png;base64,' + userPropic">
-      <span>{{user.name + ' ' + user.surname}}</span>
+      <span class="name">{{user.name + ' ' + user.surname}}</span>
+      <span class="username">{{'@' + user.username}}</span>
     </span>
   </div>
   <button mat-button class="admin-button" *ngFor="let button of buttons" (click)="getButtonAction(button)">

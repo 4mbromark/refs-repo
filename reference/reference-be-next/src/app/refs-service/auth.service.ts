@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { rejects } from 'node:assert';
 import { MasterUser } from '../refs-utility/refs-object/MasterUser';
 
 @Injectable()
@@ -9,26 +10,28 @@ export class AuthService {
         private jwtService: JwtService
     ) {}
 
-    public getToken(user: MasterUser): string {
+    public async getToken(user: MasterUser): Promise<string> {
         const ult = {
             id: user.id,
-            name: user.name,
-            surname: user.surname,
-            username: user.username,
             email: user.email
         }
 
-        const token = this.jwtService.sign(ult, { expiresIn: process.env.JWT_EXPIRATION });
-        return token;
+        return new Promise(async (resolve, rejects) => {
+            const token = await this.jwtService.sign(ult, { expiresIn: process.env.JWT_EXPIRATION });
+            resolve(token);
+        });
     }
 
-    public verifyToken(token: string): MasterUser {
+    public async verifyToken(token: string): Promise<MasterUser> {
         let user = null;
 
-        try {
-            user = this.jwtService.verify(token);
-        } catch (error) { }
-
-        return user;
+        return new Promise(async (resolve, rejects) => {
+            try {
+                user = await this.jwtService.verify(token);
+            } catch (error) {
+                // TODO
+            }
+            resolve(user);
+        });
     }
 }

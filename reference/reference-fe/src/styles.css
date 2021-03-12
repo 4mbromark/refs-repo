@@ -92,6 +92,11 @@ body {
   margin: 1px !important;
 }
 
+.admin-mincontent {
+  height: 250px !important;
+  min-height: 250px !important;
+}
+
 /* OVERRIDE ANGULAR */
 .mat-list-base {
   width: min-content;

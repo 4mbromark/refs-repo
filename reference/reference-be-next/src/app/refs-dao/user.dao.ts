@@ -51,6 +51,19 @@ export class UserDao {
         });
         return user;
     }
+
+    public async saveUser(user: User): Promise<User> {
+        await User.update({
+            name: user.name,
+            surname: user.surname,
+            username: user.username
+        }, {
+            where: {
+                id: { [Op.eq]: user.id },
+            }
+        });
+        return this.getUserById(user.id);
+    }
 }
 
 

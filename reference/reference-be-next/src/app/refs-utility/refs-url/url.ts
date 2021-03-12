@@ -6,8 +6,11 @@ export enum Url {
     USER_VERIFY = '/verify',
     USER_REGISTER = '/register',
     USER_GETPROPIC = '/getpropic/:idUser',
+    USER_SAVE = '/save',
+    USER_SAVEPROPIC = '/savepropic',
 
     ALIX = '/alix',
+    ALIX_LIST = '/alixlist/:idUser',
 
     BOARD = '/board',
 

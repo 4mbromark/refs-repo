@@ -1,5 +1,4 @@
 import { AppController } from './app.controller';
-import { AngularMiddleware } from './app/refs-utility/refs-mdwr/angular.middleware';
 import { JwtStrategy } from './app/refs-utility/refs-auth/jwt-strategy';
 import { JwtGuard } from './app/refs-utility/refs-auth/jwt-guard';
 import { InfoDao } from './app/refs-dao/info.dao';
@@ -40,8 +39,9 @@ import { UserMasterService } from './app/refs-service/master-services/user-maste
 import { UserinfoDao } from './app/refs-dao/userinfo.dao';
 import { BlobDao } from './app/refs-dao/blob.dao';
 import { JwtModule } from '@nestjs/jwt';
-import { APP_GUARD } from '@nestjs/core';
+import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { PassportModule } from '@nestjs/passport';
+import { LoggerInterceptor } from './app/refs-utility/refs-logger/logger.interceptor';
 
 @Module({
   imports: [
@@ -110,7 +110,13 @@ import { PassportModule } from '@nestjs/passport';
     {
       provide: APP_GUARD,
       useClass: JwtGuard
-    }
+    },
+
+    /** INTERCEPTORS */
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: LoggerInterceptor
+    },
   ],
 })
 export class AppModule {}

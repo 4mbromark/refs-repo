@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatExpansionModule,
 
     NgxSpinnerModule,
 

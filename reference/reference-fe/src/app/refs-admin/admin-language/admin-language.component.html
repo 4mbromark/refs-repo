@@ -1,4 +1,4 @@
-<div class="refs-column">
+<div class="refs-column refs-flex-center">
   <button mat-button class="admin-button" *ngFor="let button of buttons" (click)="setLanguage(button.languageTag)"
     [disabled]="language === button.languageTag">
     <span class="refs-w100">{{gbl(button.title)}}</span>

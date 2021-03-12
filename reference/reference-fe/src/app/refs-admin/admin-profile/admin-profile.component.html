@@ -1,0 +1,55 @@
+<div class="refs-column refs-flex-center">
+  <mat-form-field class="field" appearance="standard" floatLabel="always">
+    <mat-label>{{gbl(labels.PROFILE_NAME)}}</mat-label>
+    <input matInput type="text" [(formControl)]="name">
+  </mat-form-field>
+  <mat-form-field class="field" appearance="standard" floatLabel="always" >
+    <mat-label>{{gbl(labels.PROFILE_SURNAME)}}</mat-label>
+    <input matInput type="text" [(formControl)]="surname">
+  </mat-form-field>
+  <mat-form-field class="field" appearance="standard" floatLabel="always">
+    <mat-label>{{gbl(labels.PROFILE_USERNAME)}}</mat-label>
+    <input matInput type="text" [(formControl)]="username">
+  </mat-form-field>
+
+  <br>
+
+  <div *ngIf="!uploading" class="refs-column">
+    <button mat-button class="admin-button" (click)="saveUser();" [disabled]="isSaveButtonDisabled()">
+      <div class="refs-row refs-w100">
+        <span style="width: 60px;">
+          <fa-icon icon="save" size="lg" style="margin-right: 20px;"></fa-icon>
+        </span>
+        <span>{{gbl(labels.PROFILE_SAVEUSER)}}</span>
+      </div>
+    </button>
+    <button mat-button class="admin-button" (click)="setFormControls();" [disabled]="isSaveButtonDisabled()">
+      <div class="refs-row refs-w100">
+        <span style="width: 60px;">
+          <fa-icon icon="undo" size="lg" style="margin-right: 20px;"></fa-icon>
+        </span>
+        <span>{{gbl(labels.PROFILE_UNDO)}}</span>
+      </div>
+    </button>
+    <mat-divider style="margin: 5px 0px;"></mat-divider>
+    <button mat-button class="admin-button" (click)="uploading = true">
+      <div class="refs-row refs-w100">
+        <span style="width: 60px;">
+          <fa-icon icon="upload" size="lg" style="margin-right: 20px;"></fa-icon>
+        </span>
+        <span>{{gbl(labels.PROFILE_UPLOADPIC)}}</span>
+      </div>
+    </button>
+  </div>
+  <div *ngIf="uploading" class="refs-column">
+    <app-standard-uploader [text]="gbl(labels.PROFILE_UPLOADPIC_TEXT)" format="(jpg, jpeg, png)" style="width: 250px;"></app-standard-uploader>
+    <button mat-button class="admin-button" (click)="uploading = false">
+      <div class="refs-row refs-w100">
+        <span style="width: 60px;">
+          <fa-icon icon="times" size="lg" style="margin-right: 20px;"></fa-icon>
+        </span>
+        <span>{{gbl(labels.PROFILE_UPLOADPIC_UNDO)}}</span>
+      </div>
+    </button>
+  </div>
+</div>

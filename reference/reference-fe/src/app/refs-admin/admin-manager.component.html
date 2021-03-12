@@ -19,6 +19,14 @@
           <app-admin-home></app-admin-home>
         </section>
 
+        <section *ngSwitchCase="tags.ADMIN_HOME_PROFILE">
+          <app-admin-profile></app-admin-profile>
+        </section>
+
+        <section *ngSwitchCase="tags.ADMIN_HOME_ALIXMANAGER">
+          <app-admin-alix></app-admin-alix>
+        </section>
+
         <section *ngSwitchCase="tags.ADMIN_HOME_LANGUAGE">
           <app-admin-language></app-admin-language>
         </section>

@@ -14,8 +14,8 @@ import { skip } from 'rxjs/operators';
 })
 export class BoardComponent implements OnInit {
 
-  alix: Alix;
-  board: Board;
+  alix: Alix = null;
+  board: Board = null;
 
   smartphone = false;
   columnCount = 1;

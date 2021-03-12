@@ -1,0 +1,8 @@
+<button mat-button class="refs-100-100 uploader" (click)="uploader.click();">
+  <div class="refs-column">
+    <fa-icon class="uploader-icon" icon="upload" size="2x"></fa-icon>
+    <span class="uploader-text">{{text}}</span>
+    <span class="uploader-format">{{format}}</span>
+  </div>
+  <input type="file" style="display: none;" (change)="handleFileInput($event.target.files);" #uploader>
+</button>

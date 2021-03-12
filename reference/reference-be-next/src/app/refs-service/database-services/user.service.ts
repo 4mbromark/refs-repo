@@ -1,6 +1,6 @@
 import { UserDao } from '../../refs-dao/user.dao';
 import { User } from '../../refs-utility/refs-db/entity/reguser';
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { deprecate } from 'util';
 
 @Injectable()
@@ -26,4 +26,12 @@ export class UserService {
     public async getUserByUserAndPassword(uid: string, pwd: string): Promise<User> {
         return await this.userDao.getUserByUserAndPassword(uid, pwd);
     } 
+
+    public async saveUser(user: User): Promise<User> {
+        const conflict = await this.userDao.getUserByUser(user.username);
+        if (conflict && conflict.id !== user.id) {
+            throw new ConflictException();
+        }
+        return await this.userDao.saveUser(user);
+    }
 }

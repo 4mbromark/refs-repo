@@ -1,3 +1,4 @@
+import { Logger, NotFoundException } from '@nestjs/common';
 import { MasterAlix } from './../../refs-utility/refs-object/MasterAlix';
 import { AkaService } from '../database-services/aka.service';
 import { AlixService } from '../database-services/alix.service';
@@ -5,6 +6,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AlixMasterService {
+    private readonly logger = new Logger(AlixMasterService.name);
 
     constructor(
         private alixService: AlixService,
@@ -20,11 +22,27 @@ export class AlixMasterService {
             }
         }
 
-        let masterAlix = null;
         if (alix) {
             const akaList = await this.akaService.getAkaAlixListByIdAlix(alix.id);
-            masterAlix = new MasterAlix(alix, akaList);
+
+            this.logger.log('Found alix for: ' + a);
+            return new MasterAlix(alix, akaList);
         }
-        return masterAlix;
+
+        this.logger.log('No alix found for: ' + a);
+        throw new NotFoundException();
+    }
+
+    public async getAlixList(idUser: number): Promise<MasterAlix[]> {
+        const alixList = await this.alixService.getAlixByIdUser(idUser);
+        
+        console.log(alixList);
+        const masterAlixList = [];
+        for (const alix of alixList) {
+            const akaList = await this.akaService.getAkaAlixListByIdAlix(alix.id);
+            masterAlixList.push(new MasterAlix(alix, akaList));        
+            console.log(masterAlixList);                
+        }
+        return masterAlixList;
     }
 }

@@ -13,7 +13,7 @@ import { skip } from 'rxjs/operators';
 })
 export class BoardPageComponent implements OnInit {
 
-  page: Page;
+  page: Page = null;
 
   constructor(
     private alixService: AlixService,

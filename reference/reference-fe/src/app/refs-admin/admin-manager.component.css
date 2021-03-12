@@ -3,7 +3,9 @@
 }
 .workspace-box {
   padding: 2% 3%;
-  border-radius: 4%;
+  border-radius: 20px;
+  min-height: 400px;
+  min-width: 280px;
 }
 
 .title {

@@ -1,10 +1,11 @@
 import { RoutingService } from './routing.service';
 import { AuthenticationService } from './../refs-auth/authentication.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../refs-object/User';
 import { RestUrl } from '../refs-rest/rest-url';
+import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +21,15 @@ export class UserService {
     private routingService: RoutingService
   ) { }
 
-  login(uid: string, pwd: string): Promise<void> {
+  login(uids: string, pwds: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.http.post(RestUrl.USER_AUTH, { uid: uid, pwd: pwd }, { responseType: 'json' }).subscribe(
+      this.http.post(RestUrl.USER_AUTH, { uid: uids, pwd: pwds }, { responseType: 'json' }).subscribe(
         (user: User) => {
           this.authService.authenticate(user.token);
           this.routingService.reload();
           resolve();
         },
-        (error) => {
+        (error: HttpErrorResponse) => {
           reject(error);
         }
       );
@@ -49,6 +50,10 @@ export class UserService {
     return this.user.asObservable();
   }
 
+  getUserValue(): User {
+    return this.user.value;
+  }
+
   getUserPropic(): Observable<string> {
     return this.userPropic.asObservable();
   }
@@ -58,7 +63,17 @@ export class UserService {
       (propic: string) => {
         this.userPropic.next(propic);
       },
-      (error) => { }
+      (error: HttpErrorResponse) => { }
+    );
+  }
+
+  saveUser(usr: User): void {
+    this.http.post(RestUrl.USER_SAVE, { user: usr }, { responseType: 'json' }).subscribe(
+      (user: User) => {
+        this.user.next(user);
+        // this.routingService.reload();
+      },
+      (error: HttpErrorResponse) => { }
     );
   }
 }
