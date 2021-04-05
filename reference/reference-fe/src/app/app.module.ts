@@ -11,61 +11,71 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BoardComponent } from './refs-board/board.component';
-import { BoardUserinfoComponent } from './refs-board/board-customobjects/board-userinfo/board-userinfo.component';
+import { ContextComponent } from './refs-context/context.component';
+import { ContextHeaderComponent } from './refs-context/context-custom/context-header/context-header.component';
 import { StandardFooterComponent } from './refs-utility/refs-standard/standard-footer/standard-footer.component';
-import { BoardCardComponent } from './refs-board/board-customobjects/board-card/board-card.component';
-import { BoardButtonsComponent } from './refs-board/board-customobjects/board-buttons/board-buttons.component';
-import { BoardInfosComponent } from './refs-board/board-customobjects/board-infos/board-infos.component';
+import { ContextCardComponent } from './refs-context/context-custom/context-card/context-card.component';
+import { ContextButtonsComponent } from './refs-context/context-custom/context-buttons/context-buttons.component';
+import { ContextInfosComponent } from './refs-context/context-custom/context-infos/context-infos.component';
 import { StandardSnackbarComponent } from './refs-utility/refs-standard/standard-snackbar/standard-snackbar.component';
-import { BoardPageComponent } from './refs-board/board-page/board-page.component';
 import { BoardNotfoundComponent } from './refs-utility/refs-notfound/notfound.component';
 import { HomeComponent } from './refs-home/home.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticationInterceptorService } from './refs-utility/refs-auth/authentication-interceptor.service';
 import { LoginComponent } from './refs-login/login.component';
-import { AdminManagerComponent } from './refs-admin/admin-manager.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StandardSpinnerComponent } from './refs-utility/refs-standard/standard-spinner/standard-spinner.component';
-import { AdminHomeComponent } from './refs-admin/admin-home/admin-home.component';
-import { AdminLanguageComponent } from './refs-admin/admin-language/admin-language.component';
-import { AdminProfileComponent } from './refs-admin/admin-profile/admin-profile.component';
 import { StandardUploaderComponent } from './refs-utility/refs-standard/standard-uploader/standard-uploader.component';
-import { AdminAlixComponent } from './refs-admin/admin-alix/admin-alix.component';
+import { EditorComponent } from './refs-editor/editor.component';
+import { HighFiveColorPaletteModule } from 'hf-color-palette';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { EditableComponent } from './refs-context/context-editable/editable.component';
 
-
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardComponent,
-    BoardUserinfoComponent,
+
+    ContextComponent,
+
+    ContextHeaderComponent,
+    ContextCardComponent,
+    ContextButtonsComponent,
+    ContextInfosComponent,
+
     StandardFooterComponent,
-    BoardCardComponent,
-    BoardButtonsComponent,
-    BoardInfosComponent,
+
     StandardSnackbarComponent,
-    BoardPageComponent,
     BoardNotfoundComponent,
     HomeComponent,
     LoginComponent,
-    AdminManagerComponent,
     StandardSpinnerComponent,
-    AdminHomeComponent,
-    AdminLanguageComponent,
-    AdminProfileComponent,
     StandardUploaderComponent,
-    AdminAlixComponent
+    EditorComponent,
+    EditableComponent
   ],
   imports: [
     AngularModules,
     FontAwesomeModule,
+    HighFiveColorPaletteModule,
 
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true }
@@ -73,7 +83,11 @@ import { AdminAlixComponent } from './refs-admin/admin-alix/admin-alix.component
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
+  constructor(
+    library: FaIconLibrary,
+    translate: TranslateService
+  ) {
     library.addIconPacks(fas, far, fab);
+    translate.setDefaultLang('en');
   }
 }

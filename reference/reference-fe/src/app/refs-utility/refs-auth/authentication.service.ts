@@ -1,8 +1,8 @@
-import { User } from './../refs-object/User';
+import { MasterUser } from './../refs-object/database/master/MasterUser';
 import { StorageTag } from './../refs-enum/storage-tag';
-import { StorageService } from './../refs-service/storage.service';
+import { StorageService } from '../refs-service/storage.service';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RestUrl } from '../refs-rest/rest-url';
 
 @Injectable({
@@ -15,18 +15,18 @@ export class AuthenticationService {
     private storageService: StorageService
   ) { }
 
-  isAuthenticated(): Promise<User> {
+  isAuthenticated(): Promise<MasterUser> {
     const token = this.storageService.get(StorageTag.STORAGE_TOKEN);
     return new Promise((resolve, reject) => {
       if (!token) {
         reject();
         return;
       }
-      this.http.post(RestUrl.USER_VERIFY, { token: token }, { responseType: 'json' }).subscribe(
-        (user: User) => {
+      this.http.post(RestUrl.USER_VERIFY, { tk: token }, { responseType: 'json' }).subscribe(
+        (user: MasterUser) => {
           resolve(user);
         },
-        (error) => {
+        (error: HttpErrorResponse) => {
           this.invalidate();
           reject();
         }

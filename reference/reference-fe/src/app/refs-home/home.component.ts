@@ -1,4 +1,4 @@
-import { TitleService } from './../refs-utility/refs-service/title.service';
+import { TitleService } from '../refs-utility/refs-service/title.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

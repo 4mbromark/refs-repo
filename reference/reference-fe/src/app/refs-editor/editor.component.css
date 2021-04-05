@@ -1,0 +1,26 @@
+.editor-title {
+  font-size: 35px;
+  font-family: var(--refs-main-ffamily);
+  text-align: end !important;
+  width: 90% !important;
+  margin: 20px 0px;
+}
+
+.editor-button {
+  background-color: white;
+  border-radius: 0px !important;
+  margin: 5px 10px;
+  text-align: left;
+}
+.editor-button:hover {
+  background-color: aliceblue;
+}
+
+.editor-divider {
+  margin: 2px 20px;
+}
+.editor-divider-text {
+  margin: 0px 20px;
+  font-family: var(--refs-main-ffamily);
+}
+

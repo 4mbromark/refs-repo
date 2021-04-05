@@ -1,69 +1,38 @@
-import { Op } from "sequelize";
-import { User } from "../refs-utility/refs-db/entity/reguser";
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, ObjectId } from 'mongoose';
+import { User, UserDocument } from './schema/user.schema';
 
+@Injectable()
 export class UserDao {
 
-    public async getUserById(id: number): Promise<User> {
-        const user = await User.findByPk(id);
+    constructor(
+        @InjectModel(User.name) private userModel: Model<UserDocument>
+    ) {}
+
+    public async getUserById(_id: ObjectId | string): Promise<User> {
+        const user = await this.userModel.findById(_id);
         return user;
     }
 
-    public async getUserByUser(uid: string): Promise<User> {
-        const user = await User.findOne({
-            where: {
-                [Op.or]: [
-                    { email: { [Op.eq]: uid } },
-                    { username: { [Op.eq]: uid } }
-                ]
-            }
-        });
-        return user;
-    }
-
-    public async getUserByEmail(email: string): Promise<User> {
-        const user = await User.findOne({
-            where: {
-                email: email,
-            }
-        });
-        return user;
-    }
-
-    /** @deprecated */
-    public async getUserByUserAndPassword(uid: string, pwd: string): Promise<User> {
-        const user = await User.findOne({
-            where: {
-                [Op.or]: [
-                    {
-                        [Op.and]: [
-                            { email: { [Op.eq]: uid } },
-                            { password: { [Op.eq]: pwd } }
-                        ]
-                    },
-                    {
-                        [Op.and]: [
-                            { username: { [Op.eq]: uid } },
-                            { password: { [Op.eq]: pwd } }
-                        ]
-                    }
-                ]
-            }
+    public async getUserByUid(uid: string): Promise<User> {
+        const user = await this.userModel.findOne({
+            $or: [
+                { email: uid },
+                { username: uid }
+            ]
         });
         return user;
     }
 
     public async saveUser(user: User): Promise<User> {
-        await User.update({
-            name: user.name,
-            surname: user.surname,
-            username: user.username
-        }, {
-            where: {
-                id: { [Op.eq]: user.id },
+        await this.userModel.findByIdAndUpdate(user._id, {
+            $set: {
+                name: user.name,
+                surname: user.surname,
+                username: user.username
             }
         });
-        return this.getUserById(user.id);
+        return this.getUserById(user._id);
     }
 }
-
-

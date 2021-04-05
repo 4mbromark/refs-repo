@@ -1,23 +1,20 @@
-import { LanguageTag } from './../refs-language/language-tag';
-import { LanguageLabel } from './../refs-language/language-label';
-import { LanguageMatch } from './../refs-object/LanguageMatch';
 import { RoutingService } from './routing.service';
-import { StorageTag } from './../refs-enum/storage-tag';
+import { StorageTag } from '../refs-enum/storage-tag';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LanguageMatchList } from '../refs-language/language-match-list';
 import { StorageService } from './storage.service';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageCode } from '../refs-language/language-code';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
 
-  matchs = LanguageMatchList.MATCHS;
-
-  language: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  private language: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   constructor(
+    private translate: TranslateService,
     private routingService: RoutingService,
     private storageService: StorageService
   ) {
@@ -28,35 +25,11 @@ export class LanguageService {
     }
   }
 
-  getByLanguage(label: LanguageLabel, force?: string): string {
-    const lab: LanguageMatch = this.getByLabel(label);
-    let language = this.language.value;
-    if (force) {
-      language = force;
-    }
-    switch (language) {
-      case LanguageTag.ITALIAN: {
-        return lab.italian;
-      }
-      default: {
-        return lab.english;
-      }
-    }
-  }
-
-  getByLabel(label: LanguageLabel): LanguageMatch {
-    const text = this.matchs.find(match => match.label === label);
-    if (text) {
-      return text;
-    }
-    return this.matchs[0];
-  }
-
   getLanguage(): Observable<string> {
     return this.language.asObservable();
   }
 
-  setLanguage(language: LanguageTag): void {
+  setLanguage(language: LanguageCode): void {
     this.language.next(language);
     this.storageService.set(StorageTag.STORAGE_LANGUAGE, language);
     this.routingService.reload();
@@ -68,9 +41,9 @@ export class LanguageService {
   setLanguageByBrowserLanguage(): void {
     const bl = navigator.language.toLowerCase();
     if (bl.includes('it')) {
-      this.setLanguage(LanguageTag.ITALIAN);
+      this.setLanguage(LanguageCode.ITALIAN);
       return;
     }
-    this.setLanguage(LanguageTag.ENGLISH);
+    this.setLanguage(LanguageCode.ENGLISH);
   }
 }

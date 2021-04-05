@@ -1,0 +1,25 @@
+<div class="hf-flex-center" *ngIf="!cardLoaded">
+  <app-standard-spinner color="var(--refs-base-color)"></app-standard-spinner>
+</div>
+
+<div *ngIf="cardLoaded">
+  <mat-card-header [class]="customCard.caption ? 'card-header' : 'card-header-no-caption'">
+    <img mat-card-avatar *ngIf="customCard.avatar" class="card-avatar" [src]="'data:image/png;base64,' + customCard.avatar.file">
+    <mat-card-title *ngIf="customCard.title" class="card-title"><b>{{customCard.title.text}}</b></mat-card-title>
+    <mat-card-subtitle *ngIf="customCard.subtitle" class="card-subtitle">{{customCard.subtitle.text}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p *ngIf="customCard.caption" class="card-caption">{{customCard.caption}}</p>
+
+    <img mat-card-image *ngIf="customCard.image" [src]="'data:image/png;base64,' + customCard.image.file" [style]="customCard.text ? 'margin-bottom: 0px !important' : ''">
+
+    <p *ngIf="customCard.text" class="card-text">{{customCard.text}}</p>
+
+    <!--<mat-divider class="card-divider"></mat-divider>-->
+
+    <app-context-infos *ngIf="customCard.infoList" [infos]="customCard.infoList"></app-context-infos>
+    <app-context-buttons *ngIf="customCard.buttonList" [buttons]="customCard.buttonList"></app-context-buttons>
+  </mat-card-content>
+</div>
+

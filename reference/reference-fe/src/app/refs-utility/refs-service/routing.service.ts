@@ -1,5 +1,5 @@
-import { RoutingUrl } from './../refs-routing/routing-url';
-import { StorageTag } from './../refs-enum/storage-tag';
+import { RoutingUrl } from '../refs-routing/routing-url';
+import { StorageTag } from '../refs-enum/storage-tag';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
@@ -27,42 +27,42 @@ export class RoutingService {
     });
   }
 
-  goTo(url: string): void {
+  public goTo(url: string): void {
     this.router.navigateByUrl(url);
   }
 
-  goToHome(): void {
+  public goToHome(): void {
     this.router.navigate([RoutingUrl.HOME]);
   }
-  goToBoard(): void {
+  public goToBoard(): void {
     const alix = this.getAlixFromPath();
     this.router.navigate([alix]);
   }
-  goToPage(url: string): void {
+  public goToPage(url: string): void {
     const alix = this.getAlixFromPath();
     this.router.navigate([alix, url]);
   }
-  goToNotFound(): void {
+  public goToNotFound(): void {
     this.router.navigate([RoutingUrl.NOTFOUND], { skipLocationChange: true });
     this.location.replaceState(this.storageService.get(StorageTag.STORAGE_URL));
   }
 
-  goBack(): void {
+  public goBack(): void {
     this.location.back();
   }
 
-  getUrl(): string {
+  public getUrl(): string {
     return this.location.path();
   }
-  getPath(): Observable<string> {
+  public getPath(): Observable<string> {
     return this.path.asObservable();
   }
 
-  getAlixFromPath(): string {
+  public getAlixFromPath(): string {
     return this.getUrl().split('/')[1];
   }
 
-  reload(): void {
+  public reload(): void {
     window.location.reload();
   }
 }

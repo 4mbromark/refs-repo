@@ -1,6 +1,7 @@
+import { ObjectId } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { AlixDao } from '../../refs-dao/alix.dao';
-import { Alix } from '../../refs-utility/refs-db/entity/alixlist';
+import { Alix } from '../../refs-dao/schema/alix.schema';
 
 @Injectable()
 export class AlixService {
@@ -9,19 +10,15 @@ export class AlixService {
         private alixDao: AlixDao
     ) {}
 
-    public async getAlixById(id: number): Promise<Alix> {
-        return await this.alixDao.getAlixById(id);
+    public async getAlixById(_id: ObjectId | string): Promise<Alix> {
+        return await this.alixDao.getAlixById(_id);
     }
 
-    public async getAlixByIdUser(idUser: number): Promise<Alix[]> {
+    public async getAlixByIdUser(idUser: ObjectId): Promise<Alix[]> {
         return await this.alixDao.getAlixByIdUser(idUser);
     }
 
-    public async getAlixByAlix(a: string): Promise<Alix> {
-        return await this.alixDao.getAlixByAlix(a);
-    }
-
-    public async getAlixByAlixAndIdUser(a: string, idUser: number): Promise<Alix> { 
-        return await this.alixDao.getAlixByAlixAndIdUser(a, idUser);
+    public async getAlixByAlix(alixName: string): Promise<Alix> {
+        return await this.alixDao.getAlixByAlix(alixName);
     }
 }

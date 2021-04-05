@@ -1,13 +1,14 @@
-import { RoutingUrl } from './../refs-routing/routing-url';
+import { MasterAlixWithContextDetail } from '../refs-object/database/master/MasterAlixWithContextDetail';
+import { RoutingUrl } from '../refs-routing/routing-url';
 import { RoutingService } from './routing.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { StorageService } from './storage.service';
 import { StorageTag } from '../refs-enum/storage-tag';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Alix } from '../refs-object/Alix';
+import { MasterAlix } from '../refs-object/database/master/MasterAlix';
 import { RestUrl } from '../refs-rest/rest-url';
-import { Page } from '../refs-object/Page';
+import { ContextType } from '../refs-enum/context-type';
 
 /*
 ░█████╗░██╗░░░░░██╗██╗░░██╗  ██████╗░░█████╗░░█████╗░██████╗░██████╗░  ░██████╗██╗░░░██╗░██████╗████████╗███████╗███╗░░░███╗
@@ -24,9 +25,7 @@ import { Page } from '../refs-object/Page';
 })
 export class AlixService {
 
-  private alix: BehaviorSubject<Alix> = new BehaviorSubject<Alix>(null);
-
-  private pageCode: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  private alix: BehaviorSubject<MasterAlixWithContextDetail> = new BehaviorSubject<MasterAlixWithContextDetail>(null);
 
   constructor(
     private http: HttpClient,
@@ -37,16 +36,13 @@ export class AlixService {
       this.storageService.set(StorageTag.STORAGE_URL, url);
 
       const params = url.split('/');
-      if (RoutingUrl.ALIX_PROTECTED_URL.includes(params[1])) {
-        return;
-      }
+      const alixUrl = this.getAlixUrl(params);
 
-      if (params.length > 1) {
-        this.searchAlix(params[1]).then((alix: Alix) => {
-          this.alix.next(alix);
-          if (params.length === 3) {
-            this.pageCode.next(params[2]);
-          }
+      if (alixUrl) {
+        this.searchAlix(alixUrl[0]).then((alix: MasterAlix) => {
+          const alixWithContext = this.buildContextDetail(alix, alixUrl);
+
+          this.alix.next(alixWithContext);
         }).catch((error: HttpErrorResponse) => {
           this.routingService.goToNotFound();
         });
@@ -54,18 +50,14 @@ export class AlixService {
     });
   }
 
-  getAlix(): Observable<Alix> {
+  public getAlix(): Observable<MasterAlixWithContextDetail> {
     return this.alix.asObservable();
   }
 
-  getPageCode(): Observable<string> {
-    return this.pageCode.asObservable();
-  }
-
-  searchAlix(url: string): Promise<Alix> {
+  private searchAlix(url: string): Promise<MasterAlix> {
     return new Promise((resolve, reject) => {
-      this.http.post(RestUrl.ALIX, { alix: url }, { responseType: 'json' }).subscribe(
-        (alix: Alix) => {
+      this.http.post(RestUrl.ALIX, { alixName: url }, { responseType: 'json' }).subscribe(
+        (alix: MasterAlix) => {
           resolve(alix);
         },
         (error: HttpErrorResponse) => {
@@ -75,14 +67,10 @@ export class AlixService {
     });
   }
 
-  getAlixValue(): Alix {
-    return this.alix.value;
-  }
-
-  getAlixList(idUser: number): Promise<Alix[]> {
+  public getAlixList(idUser: string): Promise<MasterAlix[]> {
     return new Promise((resolve, reject) => {
       this.http.get(RestUrl.ALIX_LIST + idUser, { responseType: 'json' }).subscribe(
-        (alixList: Alix[]) => {
+        (alixList: MasterAlix[]) => {
           resolve(alixList);
         },
         (error: HttpErrorResponse) => {
@@ -90,5 +78,30 @@ export class AlixService {
         }
       );
     });
+  }
+
+  private getAlixUrl(url: string[]): string[] {
+    let alixUrl = null;
+    if (url.length > 1 && !RoutingUrl.ALIX_PROTECTED_URL.includes(url[1])) {
+      alixUrl = [url[1]];
+      if (url.length === 3) {
+        alixUrl.push(url[2]);
+      }
+    }
+    return alixUrl;
+  }
+
+  private buildContextDetail(alix: MasterAlix, alixUrl: string[]): MasterAlixWithContextDetail {
+    const alixWithContext = alix as MasterAlixWithContextDetail;
+
+    if (alixUrl.length === 2) {
+      alixWithContext.contextId = alixUrl[1];
+      alixWithContext.contextType = ContextType.PAGE;
+    } else {
+      alixWithContext.contextId = alix._id;
+      alixWithContext.contextType = ContextType.BOARD;
+    }
+
+    return alixWithContext;
   }
 }

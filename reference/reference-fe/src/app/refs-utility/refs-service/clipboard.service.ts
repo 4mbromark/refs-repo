@@ -12,11 +12,11 @@ export class ClipboardService {
     private snackbarService: SnackbarService
   ) { }
 
-  copy(value: string): void {
+  public copy(value: string): void {
     this.clipboard.copy(value);
   }
 
-  copyWithMessage(value: string, message?: string): void {
+  public copyWithMessage(value: string, message?: string): void {
     this.copy(value);
     this.showMessage(value, message);
   }

@@ -16,7 +16,7 @@ export class LoginGuardService {
   canActivate(): any {
     return new Promise((resolve) => {
       this.authService.isAuthenticated().then(() => {
-        this.routingService.goTo(RoutingUrl.ADMIN_MANAGER);
+        this.routingService.goTo(RoutingUrl.ALIX_EDITOR);
         resolve(false);
       }).catch(() => {
         resolve(true);

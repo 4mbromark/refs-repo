@@ -1,28 +1,28 @@
-import { User } from './../../refs-utility/refs-db/entity/reguser';
+import { UserMasterInterface } from './user-master.interface';
 import { CryptService } from './../crypt.service';
-import { ExtraService } from './../database-services/extra.service';
 import { UserService } from './../database-services/user.service';
 import { AuthService } from './../auth.service';
-import { ConflictException, Injectable, InternalServerErrorException, Logger, NotFoundException, UnauthorizedException } from "@nestjs/common";
-import { MasterUser } from '../../refs-utility/refs-object/MasterUser';
-import { MasterUserWithToken } from '../../refs-utility/refs-object/MasterUserWithToken';
+import { Injectable, InternalServerErrorException, Logger, NotFoundException, UnauthorizedException } from "@nestjs/common";
+import { MasterUser } from '../../refs-object/master/MasterUser';
+import { MasterUserWithToken } from '../../refs-object/master/MasterUserWithToken';
+import { User } from '../../refs-dao/schema/user.schema';
+import { ObjectId } from 'mongoose';
 
 @Injectable()
-export class UserMasterService {
+export class UserMasterService implements UserMasterInterface {
     private readonly logger = new Logger(UserMasterService.name);
 
     constructor(
         private authService: AuthService,
         private cryptService: CryptService,
-        private userService: UserService,
-        private extraService: ExtraService
+        private userService: UserService
     ) {}
 
     public async authUser(uid: string, pwd: string): Promise<MasterUserWithToken> {
-        const user = await this.userService.getUserByUser(uid);
+        const user = await this.userService.getUserByUid(uid);
 
         if (user) {
-            const hash = await this.cryptService.check(pwd, user.password);
+            const hash = await this.cryptService.check(pwd, user.pwd);
 
             if (hash) {
                 this.logger.log('Authentication success for: ' + uid);
@@ -37,31 +37,19 @@ export class UserMasterService {
         throw new NotFoundException();
     }
 
-    /** @deprecated */
-    public async authUserWithPassword(uid: string, pwd: string): Promise<MasterUserWithToken> {
-        const word = this.cryptService.encrpt(pwd);
-        const user = await this.userService.getUserByUserAndPassword(uid, word);
-
-        let masterUserWithToken = null;
-        if (user) {
-            masterUserWithToken = this.buildMasterUserWithToken(user);
-        }
-        return masterUserWithToken;
-    }
-
     public async verifyUser(token: string): Promise<MasterUser> {
         const masterUser = await this.authService.verifyToken(token);
         if (masterUser) {
-            const user = await this.userService.getUserById(masterUser.id);
+            const user = await this.userService.getUserById(masterUser._id);
             return new MasterUser(user);
         }
         throw new UnauthorizedException();
     }
 
-    public async getUserPropic(idUser: number): Promise<string> {
-        const extra = await this.extraService.getExtraByIdUser(idUser);
+    public async getUserPropic(idUser: ObjectId): Promise<string> {
+        const extra = '';
         if (extra) {
-            return Buffer.from(extra.propic).toString();
+            return Buffer.from(extra).toString();
         }
         throw new NotFoundException();        
     } 

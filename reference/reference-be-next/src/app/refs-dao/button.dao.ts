@@ -1,25 +1,17 @@
-import { Op } from "sequelize";
-import { Button } from '../refs-utility/refs-db/entity/board-button';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, ObjectId } from "mongoose";
+import { Button, ButtonDocument } from "./schema/button.schema";
 
+@Injectable()
 export class ButtonDao {
-    
-    public async getButtonById(id: number): Promise<Button> { 
-        const button = await Button.findByPk(id);
-        return button;
-    }
 
-    public async getButtonListByIdBoardAndIds(idBoard: number, ids: number[]): Promise<Button[]> { 
-        const buttonList = await Button.findAll({
-            where: {
-                [Op.and]: {
-                    idBoard: { [Op.eq]: idBoard },
-                    id: { [Op.in]: ids }
-                }
-            },
-            order: [
-                ['contextOrder', 'ASC']
-            ]
-        });
-        return buttonList;
+    constructor(
+        @InjectModel(Button.name) private buttonModel: Model<ButtonDocument>
+    ) {}
+
+    public async getButtonById(_id: ObjectId | string): Promise<Button> { 
+        const button = await this.buttonModel.findById(_id);
+        return button;
     }
 }

@@ -10,10 +10,17 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
+
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -27,9 +34,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
+    MatSidenavModule,
+    MatButtonToggleModule,
+    MatSliderModule,
+    MatTooltipModule,
 
     NgxSpinnerModule,
 
+    FormsModule,
     ReactiveFormsModule
   ]
 })

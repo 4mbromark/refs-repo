@@ -1,39 +1,33 @@
-import { Op } from "sequelize";
-import { Alix } from '../refs-utility/refs-db/entity/alixlist';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, ObjectId } from 'mongoose';
+import { Alix, AlixDocument } from './schema/alix.schema';
 
+@Injectable()
 export class AlixDao {
-    
-    public async getAlixById(id: number): Promise<Alix> { 
-        const alix = await Alix.findByPk(id);
+
+    constructor(
+        @InjectModel(Alix.name) private alixModel: Model<AlixDocument>
+    ) {}
+
+    public async getAlixById(_id: ObjectId | string): Promise<Alix> { 
+        const alix = await this.alixModel.findById(_id);
         return alix;
     }
 
-    public async getAlixByIdUser(idUser: number): Promise<Alix[]> { 
-        const alix = await Alix.findAll({
-            where: {
-                idUser: { [Op.eq]: idUser }
-            }
+    public async getAlixByIdUser(idUser: ObjectId): Promise<Alix[]> { 
+        const alix = await this.alixModel.find({
+            idUser: idUser
         });
         return alix;
     }
 
-    public async getAlixByAlix(a: string): Promise<Alix> { 
-        const alix = await Alix.findOne({
-            where: {
-                alix: { [Op.eq]: a }
-            }
-        });
-        return alix;
-    }
-
-    public async getAlixByAlixAndIdUser(a: string, idUser: number): Promise<Alix> { 
-        const alix = await Alix.findOne({
-            where: {
-                [Op.and]: [
-                    { idUser: { [Op.eq]: idUser } },
-                    { alix: { [Op.eq]: a } }
-                ]
-            }
+    public async getAlixByAlix(alixName: string): Promise<Alix> { 
+        const alix = await this.alixModel.findOne({
+            $or: [
+                { alixName: alixName },
+                { aka: alixName }
+            ]
         });
         return alix;
     }

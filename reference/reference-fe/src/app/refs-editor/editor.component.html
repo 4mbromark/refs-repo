@@ -1,0 +1,65 @@
+<mat-drawer-container class="hf-100-100" style="background-color: transparent;" autosize>
+  <mat-drawer class="hf-column" style="width: 500px; background-color: white;" mode="side" opened>
+    <div class="editor-title">
+      {{ labels.EDITOR_TITLE | translate }}
+    </div>
+
+    <span class="editor-divider-text">{{ labels.EDITOR_CARD | translate }}</span>
+    <mat-divider class="editor-divider"></mat-divider>
+
+    <div class="hf-row hf-m20">
+      <div class="hf-column" style="width: 50%;">
+        <button mat-button class="editor-button" (click)="newCard();" [disabled]="current !== null">
+          <fa-icon icon="plus" size="lg"></fa-icon>
+          <span style="font-size: 15px; margin: 10px">{{ labels.EDITOR_CARD_NEW | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+    <span class="editor-divider-text">{{ labels.EDITOR_PALETTE | translate }}</span>
+    <mat-divider class="editor-divider"></mat-divider>
+
+    <div class="hf-row hf-m10">
+      <hf-color-palette module="alice" header="false"></hf-color-palette>
+    </div>
+
+    <mat-divider class="editor-divider"></mat-divider>
+
+    <div class="hf-row hf-m20">
+      <div class="refs-column" style="width: 50%;">
+        <button mat-button class="editor-button">
+          <fa-icon icon="circle" size="lg"></fa-icon>
+          <span style="font-size: 15px; margin: 10px">Monkey red</span>
+        </button>
+        <button mat-button class="editor-button">
+          <fa-icon icon="circle" size="lg"></fa-icon>
+          <span style="font-size: 15px; margin: 10px">Lightning blue</span>
+        </button>
+      </div>
+
+      <div class="hf-column" style="width: 50%;">
+        <button mat-button class="editor-button">
+          <fa-icon icon="circle" size="lg"></fa-icon>
+          <span style="font-size: 15px; margin: 10px">Narwhale violet</span>
+        </button>
+        <button mat-button class="editor-button">
+          <fa-icon icon="circle" size="lg"></fa-icon>
+          <span style="font-size: 15px; margin: 10px">Best orange</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hf-row hf-m20">
+      <div class="hf-column" style="width: 50%;">
+        <button mat-button class="editor-button"  (click)="undo();" [disabled]="current === null">
+          <fa-icon icon="undo" size="lg"></fa-icon>
+          <span style="font-size: 15px; margin: 10px">{{ labels.EDITOR_UNDO | translate }}</span>
+        </button>
+      </div>
+    </div>
+
+
+  </mat-drawer>
+
+  <app-context [editorMode]="true"></app-context>
+</mat-drawer-container>

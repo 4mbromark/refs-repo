@@ -12,9 +12,12 @@ export enum Url {
     ALIX = '/alix',
     ALIX_LIST = '/alixlist/:idUser',
 
-    BOARD = '/board',
+    CONTEXT = '/context',
+    CONTEXT_BOARD = '/board',
+    CONTEXT_PAGE = '/page',
 
-    PAGE = '/page'
+    CARD = '/card',
+    CARD_GETBYID = '/get/:id'
 
 /*
     private static REST_ALIX = Url.BASE_REST + '/alix';

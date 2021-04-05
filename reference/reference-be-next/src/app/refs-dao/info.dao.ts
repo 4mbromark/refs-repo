@@ -1,25 +1,17 @@
-import { Op } from "sequelize";
-import { Info } from "../refs-utility/refs-db/entity/board-info";
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, ObjectId } from "mongoose";
+import { Info, InfoDocument } from "./schema/info.schema";
 
+@Injectable()
 export class InfoDao {
-    
-    public async getInfoById(id: number): Promise<Info> { 
-        const info = await Info.findByPk(id);
-        return info;
-    }
 
-    public async getInfoListByIdBoardAndIds(idBoard: number, ids: number[]): Promise<Info[]> { 
-        const infoList = await Info.findAll({
-            where: {
-                [Op.and]: {
-                    idBoard: { [Op.eq]: idBoard },
-                    id: { [Op.in]: ids }
-                }
-            },
-            order: [
-                ['contextOrder', 'ASC']
-            ]
-        });
-        return infoList;
+    constructor(
+        @InjectModel(Info.name) private infoModel: Model<InfoDocument>
+    ) {}
+
+    public async getInfoById(_id: ObjectId | string): Promise<Info> { 
+        const info = await this.infoModel.findById(_id);
+        return info;
     }
 }

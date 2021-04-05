@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CustomTextline } from '../refs-object/custom/CustomTextline';
+import { CustomTextline } from '../refs-object/database/custom/CustomTextline';
 import { Injectable } from '@angular/core';
-import { CustomButton } from '../refs-object/custom/CustomButton';
+import { CustomButton } from '../refs-object/database/custom/CustomButton';
 
 @Injectable({
   providedIn: 'root'
@@ -26,18 +26,18 @@ export class StyleService {
 
   getTextStyle(text: CustomTextline): string {
     let style = '';
-    if (text.color) {
+    /* if (text.color) {
       style += 'color: ' + text.color + ' !important; ';
     }
     if (text.weight) {
       style += 'font-weight: ' + text.weight + ' !important; ';
-    }
+    } */
     return style;
   }
 
   getButtonStyle(button: CustomButton): string {
     let style = '';
-    if (button.border) {
+    /* if (button.border) {
       style += 'border-color: ' + button.border + '; ';
     }
     if (button.radius) {
@@ -45,7 +45,7 @@ export class StyleService {
     }
     if (button.background) {
       style += 'background-color: ' + button.background + '; ';
-    }
+    } */
     return style;
   }
 }

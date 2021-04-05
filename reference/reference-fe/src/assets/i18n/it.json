@@ -1,0 +1,30 @@
+{
+  "login": {
+    "title": "Accedi a Reference",
+    "form": {
+      "username": "Account",
+      "usernameextended": "Email o username",
+      "password": "Password"
+    },
+    "button": "Accedi",
+    "error": {
+      "notfound": "Utente non trovato",
+      "unauthorized": "Credenziali errate",
+      "default": "Impossibile accedere"
+    }
+  },
+  "editor": {
+    "bar": {
+      "title": "Editor di Reference",
+      "card": {
+        "divider": "Sezioni",
+        "new": "Nuova sezione"
+      },
+      "palette": {
+        "divider": "Palette dei colori"
+      },
+      "save": "Salva modifiche",
+      "undo": "Annulla modifiche"
+    }
+  }
+}

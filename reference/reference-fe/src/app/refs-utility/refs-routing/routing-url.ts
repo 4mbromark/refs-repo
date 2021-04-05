@@ -3,6 +3,7 @@ export class RoutingUrl {
 
   public static LOGIN_PAGE = 'login';
   public static ADMIN_MANAGER = 'admin';
+  public static ALIX_EDITOR = 'editor';
 
   public static BOARD = '';
 
@@ -13,5 +14,6 @@ export class RoutingUrl {
     RoutingUrl.HOME,
     RoutingUrl.LOGIN_PAGE,
     RoutingUrl.ADMIN_MANAGER,
+    RoutingUrl.ALIX_EDITOR
   ];
 }

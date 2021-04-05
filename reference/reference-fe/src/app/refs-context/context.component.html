@@ -1,0 +1,21 @@
+<div class="hf-h100 hf-spacer-layout">
+  <div class="hf-h100" *ngIf="!context">
+    <app-standard-spinner color="white"></app-standard-spinner>
+  </div>
+
+  <div *ngIf="context"> <!-- style="overflow-y: auto;" -->
+    <app-context-header *ngIf="header" [alix]="alix.alixName" [header]="header"></app-context-header>
+
+    <div class="hf-flex-center">
+      <div [class]="smartphone ? 'hf-m10 context' : 'hf-m20 context'" [style.column-count]="columnCount">
+        <mat-card *ngFor="let card of cardList" class="hf-flex-center hf-noselect cardlist">
+          <app-context-card [card]="card" [editorMode]="editorMode"></app-context-card>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <span class="hf-spacer"></span>
+
+  <app-standard-footer></app-standard-footer>
+</div>

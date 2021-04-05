@@ -1,11 +1,10 @@
-import { LanguageService } from './../refs-utility/refs-service/language.service';
 import { LanguageLabel } from './../refs-utility/refs-language/language-label';
 import { HttpErrorResponse } from '@angular/common/http';
-import { StyleService } from './../refs-utility/refs-service/style.service';
-import { UserService } from './../refs-utility/refs-service/user.service';
+import { StyleService } from '../refs-utility/refs-service/style.service';
+import { UserService } from '../refs-utility/refs-service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { STATUS_CODES } from 'http';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -26,17 +25,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private userService: UserService,
     private styleService: StyleService,
-    private languageService: LanguageService
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
     this.styleService.isSmartphone().subscribe((smartphone: boolean) => {
       this.smartphone = smartphone;
     });
-  }
-
-  gbl(label: LanguageLabel): string {
-    return this.languageService.getByLanguage(label);
   }
 
   login(): void {

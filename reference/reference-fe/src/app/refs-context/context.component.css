@@ -1,0 +1,36 @@
+.context {
+  column-gap: 10px;
+  /*column-fill: auto;
+  column-span: all;*/
+}
+
+.cardlist {
+  width: auto;
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+
+/*@media only screen and (min-width: 1500px) {
+  .board {
+    column-count: 4;
+  }
+}
+@media only screen and (max-width: 1499px) and (min-width: 1100px) {
+  .board {
+    column-count: 3;
+  }
+}
+@media only screen and (max-width: 1099px) and (min-width: 700px) {
+  .board {
+    column-count: 2;
+  }
+}
+@media only screen and (max-width: 699px) {
+  .board {
+    column-count: 1;
+  }
+}*/

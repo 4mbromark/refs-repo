@@ -1,22 +1,17 @@
-import { Op } from "sequelize";
-import { Card } from "../refs-utility/refs-db/entity/board-card";
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, ObjectId } from "mongoose";
+import { Card, CardDocument } from "./schema/card.schema";
 
+@Injectable()
 export class CardDao {
-    
-    public async getCardById(id: number): Promise<Card> { 
-        const card = await Card.findByPk(id);
-        return card;
-    }
 
-    public async getCardListByIdBoard(idBoard: number): Promise<Card[]> { 
-        const cardList = await Card.findAll({
-            where: {
-                idBoard: { [Op.eq]: idBoard }
-            },
-            order: [
-                ['contextOrder', 'ASC']
-            ]
-        });
-        return cardList;
+    constructor(
+        @InjectModel(Card.name) private cardModel: Model<CardDocument>
+    ) {}
+
+    public async getCardById(_id: ObjectId | string): Promise<Card> { 
+        const card = await this.cardModel.findById(_id);
+        return card;
     }
 }

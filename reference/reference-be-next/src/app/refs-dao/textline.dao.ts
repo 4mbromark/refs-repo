@@ -1,22 +1,17 @@
-import { Textline } from './../refs-utility/refs-db/entity/board-textline';
-import { Op } from "sequelize";
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, ObjectId } from "mongoose";
+import { Textline, TextlineDocument } from "./schema/textline.schema";
 
+@Injectable()
 export class TextlineDao {
-    
-    public async getTextlineById(id: number): Promise<Textline> { 
-        const textline = await Textline.findByPk(id);
-        return textline;
-    }
 
-    public async getTextlineByIdBoardAndId(idBoard: number, id: number): Promise<Textline> { 
-        const textline = await Textline.findOne({
-            where: {
-                [Op.and]: {
-                    idBoard: { [Op.eq]: idBoard },
-                    id: { [Op.eq]: id }
-                }
-            }
-        });
+    constructor(
+        @InjectModel(Textline.name) private textlineModel: Model<TextlineDocument>
+    ) {}
+
+    public async getTextlineById(_id: ObjectId | string): Promise<Textline> { 
+        const textline = await this.textlineModel.findById(_id);
         return textline;
     }
 }

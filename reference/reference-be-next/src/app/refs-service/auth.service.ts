@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { rejects } from 'node:assert';
-import { MasterUser } from '../refs-utility/refs-object/MasterUser';
+import { MasterUser } from '../refs-object/master/MasterUser';
 
 @Injectable()
 export class AuthService {
@@ -12,7 +11,7 @@ export class AuthService {
 
     public async getToken(user: MasterUser): Promise<string> {
         const ult = {
-            id: user.id,
+            _id: user._id,
             email: user.email
         }
 

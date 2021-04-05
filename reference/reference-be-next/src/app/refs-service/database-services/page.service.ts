@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { ObjectId } from 'mongoose';
 import { PageDao } from '../../refs-dao/page.dao';
-import { Page } from '../../refs-utility/refs-db/entity/board-page';
+import { Page } from '../../refs-dao/schema/page.schema';
 
 @Injectable()
 export class PageService {
@@ -9,15 +10,15 @@ export class PageService {
         private pageDao: PageDao
     ) {}
 
-    public async getPageById(id: number): Promise<Page> {
-        return await this.pageDao.getPageById(id);
+    public async getPageById(_id: ObjectId | string): Promise<Page> {
+        return await this.pageDao.getPageById(_id);
     }
 
-    public async getPageByIdBoardAndId(idBoard: number, id: number): Promise<Page> {
-        return await this.pageDao.getPageByIdBoardAndId(idBoard, id);
+    public async getPageByIdAlixAndId(idAlix: ObjectId, _id: ObjectId): Promise<Page> {
+        return await this.pageDao.getPageByIdAlixAndId(idAlix, _id);
     }
 
-    public async getPageByIdBoardAndCode(idBoard: number, code: string): Promise<Page> {
-        return await this.pageDao.getPageByIdBoardAndCode(idBoard, code);
+    public async getPageByIdAlixAndCode(idAlix: ObjectId, code: string): Promise<Page> {
+        return await this.pageDao.getPageByIdAlixAndCode(idAlix, code);
     }
 }

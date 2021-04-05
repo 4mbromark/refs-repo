@@ -1,9 +1,11 @@
+import { AlixMasterInterface } from './../refs-service/master-services/alix-master.interface';
 import { LoggerUtil } from './../refs-utility/refs-logger/logger-util';
 import { AlixMasterService } from './../refs-service/master-services/alix-master.service';
 import { Body, Controller, Get, HttpStatus, Injectable, Logger, Param, Post, Res } from "@nestjs/common";
 import { Url } from "../refs-utility/refs-url/url";
 import { Response } from 'express';
 import { Public } from '../refs-utility/refs-auth/jwt-public';
+import { ObjectId } from 'mongoose';
 
 @Controller(Url.BASE_REST + Url.ALIX)
 export class AlixController {
@@ -16,7 +18,9 @@ export class AlixController {
     @Public()
     @Post()
     public async getAlix(@Body() body: any, @Res() res: Response) {
-        const alix = await this.alixMasterService.getAlix(body.alix);
+        const { alixName } = body;
+
+        const alix = await this.alixMasterService.getAlix(alixName);
         if (alix) {
             res.status(HttpStatus.OK).send(alix);
         } else {
@@ -26,7 +30,7 @@ export class AlixController {
     }
 
     @Get(Url.ALIX_LIST)
-    public async getAlixList(@Param('idUser') idUser: number, @Res() res: Response) {
+    public async getAlixList(@Param('idUser') idUser: ObjectId, @Res() res: Response) {
         const alixList = await this.alixMasterService.getAlixList(idUser);
         if (alixList) {
             res.status(HttpStatus.OK).send(alixList);

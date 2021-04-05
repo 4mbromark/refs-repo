@@ -1,8 +1,6 @@
 import { LoggerUtil } from './logger-util';
 import { CallHandler, ExecutionContext, Injectable, Logger, NestInterceptor } from "@nestjs/common";
 import { catchError, tap } from 'rxjs/operators';
-import { Json } from 'sequelize/types/lib/utils';
-
 @Injectable()
 export class LoggerInterceptor implements NestInterceptor {
     private readonly logger = new Logger(LoggerInterceptor.name);
@@ -16,7 +14,7 @@ export class LoggerInterceptor implements NestInterceptor {
         this.logger.log(LoggerUtil.NEW_REQUEST + connection.remoteAddress + ' ' + method + ' -> ' + originalUrl);
         const bodyCopy = JSON.parse(JSON.stringify(body))
         delete bodyCopy['pwd'];
-        delete bodyCopy['token'];
+        delete bodyCopy['tk'];
 
         const bodyJson = JSON.stringify(bodyCopy)
         if (bodyJson !== '{}') {

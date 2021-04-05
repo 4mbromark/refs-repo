@@ -1,0 +1,30 @@
+{
+  "login": {
+    "title": "Log into Reference",
+    "form": {
+      "username": "Account",
+      "usernameextended": "Email or username",
+      "password": "Password"
+    },
+    "button": "Login",
+    "error": {
+      "notfound": "User not found",
+      "unauthorized": "Wrong credentials",
+      "default": "Unable to login"
+    }
+  },
+  "editor": {
+    "bar": {
+      "title": "Reference editor",
+      "card": {
+        "divider": "Sections",
+        "new": "New section"
+      },
+      "palette": {
+        "divider": "Color palette"
+      },
+      "save": "Save changes",
+      "undo": "Undo changes"
+    }
+  }
+}

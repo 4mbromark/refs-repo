@@ -1,0 +1,10 @@
+<div class="hf-column hf-flex-center">
+  <button mat-raised-button *ngFor="let button of buttons" class="button" [style]="getButtonStyle(button)" (click)="getButtonAction(button);">
+
+    <div class="hf-column">
+      <span class="button-title" [style]="getTextStyle(button.title)">{{button.title.text}}</span>
+      <span *ngIf="button.subtitle" class="button-subtitle" [style]="getTextStyle(button.subtitle)">{{button.subtitle.text}}</span>
+    </div>
+
+  </button>
+</div>

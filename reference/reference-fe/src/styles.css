@@ -1,4 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://4mbromark.github.io/hf-axdevtool/styles/highfive-basestyle.css';
 
 body {
   margin: 0px;

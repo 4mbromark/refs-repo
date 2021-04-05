@@ -1,6 +1,7 @@
-import { Textline } from './../../refs-utility/refs-db/entity/board-textline';
-import { TextlineDao } from '../../refs-dao/textline.dao';
 import { Injectable } from '@nestjs/common';
+import { ObjectId } from 'mongoose';
+import { Textline } from '../../refs-dao/schema/textline.schema';
+import { TextlineDao } from '../../refs-dao/textline.dao';
 
 @Injectable()
 export class TextlineService {
@@ -9,11 +10,7 @@ export class TextlineService {
         private textlineDao: TextlineDao
     ) {}
 
-    public async getTextlineById(id: number): Promise<Textline> {
-        return await this.textlineDao.getTextlineById(id);
-    }
-
-    public async getTextlineByIdBoardAndId(idBoard: number, id: number): Promise<Textline> {
-        return await this.textlineDao.getTextlineByIdBoardAndId(idBoard, id);
+    public async getTextlineById(_id: ObjectId | string): Promise<Textline> {
+        return await this.textlineDao.getTextlineById(_id);
     }
 }

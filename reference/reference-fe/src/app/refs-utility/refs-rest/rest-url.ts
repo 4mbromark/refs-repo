@@ -10,7 +10,9 @@ export enum RestUrl {
   ALIX = '/refs-nextbe/alix',
   ALIX_LIST = '/refs-nextbe/alix/alixlist/',
 
-  BOARD = '/refs-nextbe/board',
+  CONTEXT_BOARD = '/refs-nextbe/context/board',
+  CONTEXT_PAGE = '/refs-nextbe/context/page',
 
-  PAGE = '/refs-nextbe/page'
+  CARD = '/refs-nextbe/card',
+  CARD_GETBYID = '/refs-nextbe/card/get/'
 }

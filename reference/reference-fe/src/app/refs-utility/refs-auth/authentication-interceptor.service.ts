@@ -1,5 +1,5 @@
 import { StorageTag } from './../refs-enum/storage-tag';
-import { StorageService } from './../refs-service/storage.service';
+import { StorageService } from '../refs-service/storage.service';
 import { HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
