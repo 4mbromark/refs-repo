@@ -1,0 +1,45 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://4mbromark.github.io/hf-axdevtool/styles/highfive-basestyle.css';
+
+body {
+  margin: 0px;
+}
+
+:root {
+  --refs-hf-color: rgb(0, 9, 111);
+  --refs-main-aliceblue: aliceblue;
+  --refs-main-ffamily: Segoe UI, Arial;
+  --refs-base-color: midnightblue;
+}
+
+@font-face {
+  font-family: 'Reference'; /*a name to be used later*/
+  src: url('./assets/font/mplus-2c-bold.ttf'); /*URL to font*/
+}
+
+/* OVERRIDE ANGULAR */
+.mat-list-base {
+  width: min-content;
+}
+.mat-list-item {
+  margin-top: -15px;
+  line-height: 30px;
+}
+.mat-list-icon {
+  height: unset !important;
+}
+.mat-snack-bar-container {
+  color: white;
+  min-width: unset !important;
+  background-color: var(--refs-hf-color);
+}
+.mat-snack-bar-handset {
+  width: unset !important;
+}
+
+/* OVERIDE SCROLLBAR */
+::-webkit-scrollbar {
+  display: none;
+}
+
+

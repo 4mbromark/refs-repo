@@ -1,0 +1,9 @@
+.info {
+  font-size: medium;
+  align-items: center;
+  margin: 0px 30px
+}
+.info-line {
+  cursor: pointer;
+  margin: -3px 0px !important;
+}

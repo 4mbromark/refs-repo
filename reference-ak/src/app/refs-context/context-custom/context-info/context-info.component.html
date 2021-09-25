@@ -1,0 +1,10 @@
+<div class="hf-flex-center">
+  <mat-list class="info">
+    <mat-list-item *ngFor="let info of infos">
+      <fa-icon mat-list-icon [icon]="getInfoIcon(info)" size="sm"></fa-icon>
+      <div mat-line class="hf-noselect info-line" (click)="copyToClipboard(info.info);">
+        <span>{{ info.info }}</span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

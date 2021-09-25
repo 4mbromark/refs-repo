@@ -1,0 +1,31 @@
+.card-header {
+  margin: 5px 0px 15px 10px !important;
+}
+.card-header-nocaption {
+  margin: 5px 0px 35px 10px !important;
+}
+
+.card-avatar {
+  width: 60px;
+  height: 60px;
+  margin: 2px
+}
+
+.card-title, .card-subtitle, .card-caption, .card-text {
+  font-family: var(--refs-main-ffamily);
+}
+.card-title, .card-subtitle {
+  padding-top: 5px;
+}
+.card-title {
+  font-size: 25px;
+}
+.card-subtitle {
+  font-size: 17px;
+}
+.card-caption, .card-text {
+  margin: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}

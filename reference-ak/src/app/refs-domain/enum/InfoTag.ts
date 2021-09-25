@@ -1,0 +1,5 @@
+export enum InfoTag {
+  TYPE_BIRTHDAY = 'BIRTHDAY',
+  TYPE_PLACE = 'PLACE',
+  TYPE_CONTACT = 'CONTACT'
+}

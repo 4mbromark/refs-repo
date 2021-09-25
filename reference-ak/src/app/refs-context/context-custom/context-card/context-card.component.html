@@ -1,0 +1,17 @@
+  <mat-card-header [class]="customCard.caption ? 'card-header' : 'card-header-nocaption'">
+    <img mat-card-avatar *ngIf="customCard.avatar" class="card-avatar" [src]="customCard.avatar.file">
+    <mat-card-title *ngIf="customCard.title" class="card-title"><b>{{customCard.title.text}}</b></mat-card-title>
+    <mat-card-subtitle *ngIf="customCard.subtitle" class="card-subtitle">{{customCard.subtitle.text}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p *ngIf="customCard.caption" class="card-caption">{{customCard.caption}}</p>
+
+    <img mat-card-image *ngIf="customCard.image" [src]="customCard.image.file" [style]="customCard.text ? 'margin-bottom: 0px !important' : ''">
+
+    <p *ngIf="customCard.text" class="card-text">{{customCard.text}}</p>
+
+    <app-context-info *ngIf="customCard.infoList" [infos]="customCard.infoList"></app-context-info>
+    <app-context-button *ngIf="customCard.buttonList" [buttons]="customCard.buttonList"></app-context-button>
+  </mat-card-content>
+

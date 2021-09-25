@@ -1,0 +1,47 @@
+<div class="hf-h100 hf-spacer-layout">
+  <div *ngIf="context">
+    <mat-toolbar class="hf-flex-center hf-noselect board-userinfo mat-elevation-z2">
+      <div class="userinfo">
+        <div class="hf-flex-center">
+          <div class="hf-row hf-flex-center board-main-card">
+            <!--<img *ngIf="header.avatar" class="board-main-propic" [src]="header.avatar.file"> -->
+            <div class="board-main-refs hf-column">
+              <span *ngIf="header.name" style="font-size: larger; height: 100%;"><b>{{header.name.text}}</b></span>
+              <!-- <span *ngIf="header.pseudonym" style="font-size: large;"><i>{{header.pseudonym.text}}</i></span>
+              <span *ngIf="header.profile" style="font-size: large;">{{header.profile.text}}</span>
+              <span *ngIf="header.sentence" style="font-size: large;">{{header.sentence.text}}</span> -->
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="header.bio" class="hf-flex-center">
+          <span class="board-main-bio">
+            {{ header.bio }}
+          </span>
+        </div>
+
+        <app-context-info *ngIf="header.infoList && header.infoList.length > 0" [infos]="header.infoList">
+        </app-context-info>
+
+        <app-context-button *ngIf="header.buttonList && header.buttonList.length > 0" [buttons]="header.buttonList">
+        </app-context-button>
+
+        <mat-divider *ngIf="header.buttonList && header.buttonList.length > 0" class="support-divider"></mat-divider>
+
+      </div>
+    </mat-toolbar>
+
+
+    <div class="hf-flex-center">
+      <div [class]="smartphone ? 'hf-m10 context' : 'hf-m20 context'" [style.column-count]="columnCount">
+        <mat-card *ngFor="let card of cardList" class="hf-h100 hf-noselect cardlist">
+          <app-context-card [customCard]="card"></app-context-card>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <span class="hf-spacer"></span>
+
+  <app-context-footer></app-context-footer>
+</div>
